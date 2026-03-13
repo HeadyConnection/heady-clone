@@ -1,4 +1,14 @@
 /**
+ * ╔══════════════════════════════════════════════════════════════════╗
+ * ║   ██╗  ██╗███████╗ █████╗ ██████╗ ██╗   ██╗™                  ║
+ * ║   ███████║█████╗  ███████║██║  ██║ ╚████╔╝                     ║
+ * ║   ██║  ██║███████╗██║  ██║██████╔╝   ██║                       ║
+ * ║   ✦ Built with Love by Heady™ — HeadySystems Inc. ✦           ║
+ * ║   ◈ Sacred Geometry v4.0 · φ (1.618) · © 2026 Eric Haywood    ║
+ * ╚══════════════════════════════════════════════════════════════════╝
+ */
+
+/**
  * HiveCoordinator — Swarm Coordination Engine
  * Manages task decomposition, parallel dispatch, consensus, and result fusion
  * for the Heady agent swarm. All constants φ-derived. CSL gates replace boolean.

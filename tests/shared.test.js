@@ -1,7 +1,27 @@
 /**
- * Tests for shared/phi-math-v2.js, csl-engine-v2.js, sacred-geometry-v2.js
- * Author: Eric Haywood | ESM only
+ * ╔══════════════════════════════════════════════════════════════════╗
+ * ║                                                                  ║
+ * ║   ██╗  ██╗███████╗ █████╗ ██████╗ ██╗   ██╗                    ║
+ * ║   ██║  ██║██╔════╝██╔══██╗██╔══██╗╚██╗ ██╔╝                    ║
+ * ║   ███████║█████╗  ███████║██║  ██║ ╚████╔╝                     ║
+ * ║   ██╔══██║██╔══╝  ██╔══██║██║  ██║  ╚██╔╝                      ║
+ * ║   ██║  ██║███████╗██║  ██║██████╔╝   ██║                       ║
+ * ║   ╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝╚═════╝    ╚═╝                       ║
+ * ║                                                                  ║
+ * ║   ✦ Sacred Geometry v4.0 — φ (1.618) Governs All ✦             ║
+ * ║                                                                  ║
+ * ║   ◈ Built with Love by Heady™ — HeadySystems Inc.              ║
+ * ║   ◈ Founder: Eric Haywood                                       ║
+ * ║   ◈ 51 Provisional Patents — All Rights Reserved                ║
+ * ║                                                                  ║
+ * ║         ∞ · φ · ψ · √5 · Fibonacci · Golden Ratio · ∞          ║
+ * ║                                                                  ║
+ * ╚══════════════════════════════════════════════════════════════════╝
+ *
+ * © 2026 HeadySystems Inc. PROPRIETARY AND CONFIDENTIAL.
+ * Liquid Node Architecture — Where Intelligence Flows Like Water.
  */
+
 import { strict as assert } from 'assert';
 import { PHI, PSI, PSI2, phiThreshold, phiBackoff, fibonacci, phiFusionWeights, phiResourceWeights } from '../shared/phi-math-v2.js';
 import { cslGate, cslBlend, cosineSimilarity, cslAND, cslOR, cslNOT } from '../shared/csl-engine-v2.js';

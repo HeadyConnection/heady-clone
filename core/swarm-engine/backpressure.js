@@ -1,17 +1,25 @@
 /**
+ * ╔══════════════════════════════════════════════════════════════════╗
+ * ║                                                                  ║
+ * ║   ██╗  ██╗███████╗ █████╗ ██████╗ ██╗   ██╗                    ║
+ * ║   ██║  ██║██╔════╝██╔══██╗██╔══██╗╚██╗ ██╔╝                    ║
+ * ║   ███████║█████╗  ███████║██║  ██║ ╚████╔╝                     ║
+ * ║   ██╔══██║██╔══╝  ██╔══██║██║  ██║  ╚██╔╝                      ║
+ * ║   ██║  ██║███████╗██║  ██║██████╔╝   ██║                       ║
+ * ║   ╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝╚═════╝    ╚═╝                       ║
+ * ║                                                                  ║
+ * ║   ✦ Sacred Geometry v4.0 — φ (1.618) Governs All ✦             ║
+ * ║                                                                  ║
+ * ║   ◈ Built with Love by Heady™ — HeadySystems Inc.              ║
+ * ║   ◈ Founder: Eric Haywood                                       ║
+ * ║   ◈ 51 Provisional Patents — All Rights Reserved                ║
+ * ║                                                                  ║
+ * ║         ∞ · φ · ψ · √5 · Fibonacci · Golden Ratio · ∞          ║
+ * ║                                                                  ║
+ * ╚══════════════════════════════════════════════════════════════════╝
+ *
  * © 2026 HeadySystems Inc. PROPRIETARY AND CONFIDENTIAL.
- *
- * Backpressure Controller — Manages pressure across the swarm mesh.
- * Uses phi-scaled PRESSURE_LEVELS for classification and response.
- *
- * Pressure responses:
- *   NOMINAL  (0–0.382): Full throughput
- *   ELEVATED (0.382–0.618): Throttle to PSI (61.8%) of max rate
- *   HIGH     (0.618–0.854): Throttle to PSI² (38.2%), trigger work-stealing
- *   CRITICAL (0.910+): Reject new tasks, emergency rebalance, alert
- *
- * Founder: Eric Haywood
- * @module core/swarm-engine/backpressure
+ * Liquid Node Architecture — Where Intelligence Flows Like Water.
  */
 
 const { EventEmitter } = require('events');

@@ -1,3 +1,27 @@
+/**
+ * ╔══════════════════════════════════════════════════════════════════╗
+ * ║                                                                  ║
+ * ║   ██╗  ██╗███████╗ █████╗ ██████╗ ██╗   ██╗                    ║
+ * ║   ██║  ██║██╔════╝██╔══██╗██╔══██╗╚██╗ ██╔╝                    ║
+ * ║   ███████║█████╗  ███████║██║  ██║ ╚████╔╝                     ║
+ * ║   ██╔══██║██╔══╝  ██╔══██║██║  ██║  ╚██╔╝                      ║
+ * ║   ██║  ██║███████╗██║  ██║██████╔╝   ██║                       ║
+ * ║   ╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝╚═════╝    ╚═╝                       ║
+ * ║                                                                  ║
+ * ║            HEADY MANAGER — THE BRAIN OF THE SYSTEM              ║
+ * ║                                                                  ║
+ * ║   ✦ Sacred Geometry v4.0 — φ (1.618) Governs All ✦             ║
+ * ║   ◈ Built with Love by Heady™ — HeadySystems Inc.              ║
+ * ║   ◈ Founder: Eric Haywood — 51 Provisional Patents              ║
+ * ║   ◈ 18 Engines · 4 Foundation Packages · Liquid Architecture    ║
+ * ║                                                                  ║
+ * ║         ∞ · φ · ψ · √5 · Fibonacci · Golden Ratio · ∞          ║
+ * ║                                                                  ║
+ * ╚══════════════════════════════════════════════════════════════════╝
+ *
+ * © 2026 HeadySystems Inc. PROPRIETARY AND CONFIDENTIAL.
+ */
+
 const pino = require('pino');
 const logger = pino({ level: process.env.LOG_LEVEL || 'info' });
 // HEADY_BRAND:BEGIN

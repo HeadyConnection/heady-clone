@@ -1,21 +1,25 @@
 /**
+ * ╔══════════════════════════════════════════════════════════════════╗
+ * ║                                                                  ║
+ * ║   ██╗  ██╗███████╗ █████╗ ██████╗ ██╗   ██╗                    ║
+ * ║   ██║  ██║██╔════╝██╔══██╗██╔══██╗╚██╗ ██╔╝                    ║
+ * ║   ███████║█████╗  ███████║██║  ██║ ╚████╔╝                     ║
+ * ║   ██╔══██║██╔══╝  ██╔══██║██║  ██║  ╚██╔╝                      ║
+ * ║   ██║  ██║███████╗██║  ██║██████╔╝   ██║                       ║
+ * ║   ╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝╚═════╝    ╚═╝                       ║
+ * ║                                                                  ║
+ * ║   ✦ Sacred Geometry v4.0 — φ (1.618) Governs All ✦             ║
+ * ║                                                                  ║
+ * ║   ◈ Built with Love by Heady™ — HeadySystems Inc.              ║
+ * ║   ◈ Founder: Eric Haywood                                       ║
+ * ║   ◈ 51 Provisional Patents — All Rights Reserved                ║
+ * ║                                                                  ║
+ * ║         ∞ · φ · ψ · √5 · Fibonacci · Golden Ratio · ∞          ║
+ * ║                                                                  ║
+ * ╚══════════════════════════════════════════════════════════════════╝
+ *
  * © 2026 HeadySystems Inc. PROPRIETARY AND CONFIDENTIAL.
- *
- * CSL Engine — Continuous Semantic Logic operations.
- * Implements CSL gates as vector space operations replacing boolean logic.
- *
- * CSL Operations:
- *   AND  (cosine similarity)     — semantic conjunction
- *   OR   (superposition blend)   — semantic disjunction
- *   NOT  (orthogonal projection) — semantic negation
- *   GATE (sigmoid activation)    — soft threshold gate
- *   XOR  (symmetric difference)  — semantic mutual exclusion
- *
- * All operations work on 384D normalized vectors.
- * 60+ provisional patents by HeadySystems Inc.
- *
- * Founder: Eric Haywood
- * @module core/vector-ops/csl-engine
+ * Liquid Node Architecture — Where Intelligence Flows Like Water.
  */
 
 const {

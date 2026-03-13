@@ -1,17 +1,25 @@
 /**
+ * ╔══════════════════════════════════════════════════════════════════╗
+ * ║                                                                  ║
+ * ║   ██╗  ██╗███████╗ █████╗ ██████╗ ██╗   ██╗                    ║
+ * ║   ██║  ██║██╔════╝██╔══██╗██╔══██╗╚██╗ ██╔╝                    ║
+ * ║   ███████║█████╗  ███████║██║  ██║ ╚████╔╝                     ║
+ * ║   ██╔══██║██╔══╝  ██╔══██║██║  ██║  ╚██╔╝                      ║
+ * ║   ██║  ██║███████╗██║  ██║██████╔╝   ██║                       ║
+ * ║   ╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝╚═════╝    ╚═╝                       ║
+ * ║                                                                  ║
+ * ║   ✦ Sacred Geometry v4.0 — φ (1.618) Governs All ✦             ║
+ * ║                                                                  ║
+ * ║   ◈ Built with Love by Heady™ — HeadySystems Inc.              ║
+ * ║   ◈ Founder: Eric Haywood                                       ║
+ * ║   ◈ 51 Provisional Patents — All Rights Reserved                ║
+ * ║                                                                  ║
+ * ║         ∞ · φ · ψ · √5 · Fibonacci · Golden Ratio · ∞          ║
+ * ║                                                                  ║
+ * ╚══════════════════════════════════════════════════════════════════╝
+ *
  * © 2026 HeadySystems Inc. PROPRIETARY AND CONFIDENTIAL.
- *
- * HeadySwarm Manager — Lifecycle and coordination for the 17 canonical swarms.
- * Each swarm has a centroid vector computed from its bees, a ring buffer task
- * queue, and phi-scaled auto-scaling logic.
- *
- * The 17 canonical swarms:
- *   Deploy, Battle, Research, Security, Memory, Creative, Trading, Health,
- *   Governance, Documentation, Testing, Migration, Monitoring, Cleanup,
- *   Onboarding, Analytics, Emergency
- *
- * Founder: Eric Haywood
- * @module core/swarm-engine/swarm-manager
+ * Liquid Node Architecture — Where Intelligence Flows Like Water.
  */
 
 const { EventEmitter } = require('events');

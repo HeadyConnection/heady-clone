@@ -1,18 +1,25 @@
 /**
+ * ╔══════════════════════════════════════════════════════════════════╗
+ * ║                                                                  ║
+ * ║   ██╗  ██╗███████╗ █████╗ ██████╗ ██╗   ██╗                    ║
+ * ║   ██║  ██║██╔════╝██╔══██╗██╔══██╗╚██╗ ██╔╝                    ║
+ * ║   ███████║█████╗  ███████║██║  ██║ ╚████╔╝                     ║
+ * ║   ██╔══██║██╔══╝  ██╔══██║██║  ██║  ╚██╔╝                      ║
+ * ║   ██║  ██║███████╗██║  ██║██████╔╝   ██║                       ║
+ * ║   ╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝╚═════╝    ╚═╝                       ║
+ * ║                                                                  ║
+ * ║   ✦ Sacred Geometry v4.0 — φ (1.618) Governs All ✦             ║
+ * ║                                                                  ║
+ * ║   ◈ Built with Love by Heady™ — HeadySystems Inc.              ║
+ * ║   ◈ Founder: Eric Haywood                                       ║
+ * ║   ◈ 51 Provisional Patents — All Rights Reserved                ║
+ * ║                                                                  ║
+ * ║         ∞ · φ · ψ · √5 · Fibonacci · Golden Ratio · ∞          ║
+ * ║                                                                  ║
+ * ╚══════════════════════════════════════════════════════════════════╝
+ *
  * © 2026 HeadySystems Inc. PROPRIETARY AND CONFIDENTIAL.
- *
- * T1 Short-Term Memory — HNSW-indexed vector store with φ-decay TTL.
- *
- * Capacity: 144,233 vectors (Fibonacci approximation to 144K).
- * Default TTL: 47 hours (Fibonacci-derived).
- * Decay function: relevance(t) = score × ψ^(t/τ) where τ = 47h.
- * Consolidation: high-access entries promoted to T2 at φ⁻¹ threshold.
- *
- * In production, this wraps pgvector with HNSW index.
- * In standalone/test mode, uses in-memory HNSW simulation.
- *
- * Founder: Eric Haywood
- * @module @heady/heady-memory/t1
+ * Liquid Node Architecture — Where Intelligence Flows Like Water.
  */
 
 "use strict";

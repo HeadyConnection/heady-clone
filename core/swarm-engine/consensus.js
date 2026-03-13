@@ -1,14 +1,25 @@
 /**
+ * ╔══════════════════════════════════════════════════════════════════╗
+ * ║                                                                  ║
+ * ║   ██╗  ██╗███████╗ █████╗ ██████╗ ██╗   ██╗                    ║
+ * ║   ██║  ██║██╔════╝██╔══██╗██╔══██╗╚██╗ ██╔╝                    ║
+ * ║   ███████║█████╗  ███████║██║  ██║ ╚████╔╝                     ║
+ * ║   ██╔══██║██╔══╝  ██╔══██║██║  ██║  ╚██╔╝                      ║
+ * ║   ██║  ██║███████╗██║  ██║██████╔╝   ██║                       ║
+ * ║   ╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝╚═════╝    ╚═╝                       ║
+ * ║                                                                  ║
+ * ║   ✦ Sacred Geometry v4.0 — φ (1.618) Governs All ✦             ║
+ * ║                                                                  ║
+ * ║   ◈ Built with Love by Heady™ — HeadySystems Inc.              ║
+ * ║   ◈ Founder: Eric Haywood                                       ║
+ * ║   ◈ 51 Provisional Patents — All Rights Reserved                ║
+ * ║                                                                  ║
+ * ║         ∞ · φ · ψ · √5 · Fibonacci · Golden Ratio · ∞          ║
+ * ║                                                                  ║
+ * ╚══════════════════════════════════════════════════════════════════╝
+ *
  * © 2026 HeadySystems Inc. PROPRIETARY AND CONFIDENTIAL.
- *
- * Swarm Consensus — Distributed decision-making across swarms.
- * Uses CSL-weighted voting with phi-fusion tally.
- *
- * Quorum: ceil(17 * PSI) = ceil(10.506) = 11 swarms
- * Acceptance: weighted score >= CSL_THRESHOLDS.HIGH (0.882)
- *
- * Founder: Eric Haywood
- * @module core/swarm-engine/consensus
+ * Liquid Node Architecture — Where Intelligence Flows Like Water.
  */
 
 const { EventEmitter } = require('events');

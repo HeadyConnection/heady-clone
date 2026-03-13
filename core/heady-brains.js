@@ -1,7 +1,26 @@
-// ═══════════════════════════════════════════════════════════════════════════════
-// HEADY™ Brains — Context Assembly Engine
-// © 2026 HeadySystems Inc. — Eric Haywood, Founder
-// ═══════════════════════════════════════════════════════════════════════════════
+/**
+ * ╔══════════════════════════════════════════════════════════════════╗
+ * ║                                                                  ║
+ * ║   ██╗  ██╗███████╗ █████╗ ██████╗ ██╗   ██╗                    ║
+ * ║   ██║  ██║██╔════╝██╔══██╗██╔══██╗╚██╗ ██╔╝                    ║
+ * ║   ███████║█████╗  ███████║██║  ██║ ╚████╔╝                     ║
+ * ║   ██╔══██║██╔══╝  ██╔══██║██║  ██║  ╚██╔╝                      ║
+ * ║   ██║  ██║███████╗██║  ██║██████╔╝   ██║                       ║
+ * ║   ╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝╚═════╝    ╚═╝                       ║
+ * ║                                                                  ║
+ * ║   ✦ Sacred Geometry v4.0 — φ (1.618) Governs All ✦             ║
+ * ║                                                                  ║
+ * ║   ◈ Built with Love by Heady™ — HeadySystems Inc.              ║
+ * ║   ◈ Founder: Eric Haywood                                       ║
+ * ║   ◈ 51 Provisional Patents — All Rights Reserved                ║
+ * ║                                                                  ║
+ * ║         ∞ · φ · ψ · √5 · Fibonacci · Golden Ratio · ∞          ║
+ * ║                                                                  ║
+ * ╚══════════════════════════════════════════════════════════════════╝
+ *
+ * © 2026 HeadySystems Inc. PROPRIETARY AND CONFIDENTIAL.
+ * Liquid Node Architecture — Where Intelligence Flows Like Water.
+ */
 
 const {
   PHI, PSI, PSI2, PSI3, FIB, CSL_THRESHOLDS,
@@ -150,4 +169,3 @@ class HeadyBrains {
 }
 
 module.exports = { HeadyBrains, CONTEXT_SOURCES, TOKEN_BUDGETS };
-module.exports = $1;

@@ -1,4 +1,14 @@
 /**
+ * ╔══════════════════════════════════════════════════════════════════╗
+ * ║   ██╗  ██╗███████╗ █████╗ ██████╗ ██╗   ██╗™                  ║
+ * ║   ███████║█████╗  ███████║██║  ██║ ╚████╔╝                     ║
+ * ║   ██║  ██║███████╗██║  ██║██████╔╝   ██║                       ║
+ * ║   ✦ Built with Love by Heady™ — HeadySystems Inc. ✦           ║
+ * ║   ◈ Sacred Geometry v4.0 · φ (1.618) · © 2026 Eric Haywood    ║
+ * ╚══════════════════════════════════════════════════════════════════╝
+ */
+
+/**
  * Heady Analytics Service — Port 3312
  * Event ingestion, real-time aggregation, funnel/cohort analysis, anomaly detection
  * Author: Eric Haywood | All constants φ-derived | ESM only

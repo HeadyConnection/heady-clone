@@ -1,4 +1,14 @@
 /**
+ * ╔══════════════════════════════════════════════════════════════════╗
+ * ║   ██╗  ██╗███████╗ █████╗ ██████╗ ██╗   ██╗™                  ║
+ * ║   ███████║█████╗  ███████║██║  ██║ ╚████╔╝                     ║
+ * ║   ██║  ██║███████╗██║  ██║██████╔╝   ██║                       ║
+ * ║   ✦ Built with Love by Heady™ — HeadySystems Inc. ✦           ║
+ * ║   ◈ Sacred Geometry v4.0 · φ (1.618) · © 2026 Eric Haywood    ║
+ * ╚══════════════════════════════════════════════════════════════════╝
+ */
+
+/**
  * Heady Auth Session Server — Port 3310
  * Firebase Auth relay + httpOnly session cookies + CSRF + device binding
  * Author: Eric Haywood | All constants φ-derived | ESM only

@@ -1,4 +1,14 @@
 /**
+ * ╔══════════════════════════════════════════════════════════════════╗
+ * ║   ██╗  ██╗███████╗ █████╗ ██████╗ ██╗   ██╗™                  ║
+ * ║   ███████║█████╗  ███████║██║  ██║ ╚████╔╝                     ║
+ * ║   ██║  ██║███████╗██║  ██║██████╔╝   ██║                       ║
+ * ║   ✦ Built with Love by Heady™ — HeadySystems Inc. ✦           ║
+ * ║   ◈ Sacred Geometry v4.0 · φ (1.618) · © 2026 Eric Haywood    ║
+ * ╚══════════════════════════════════════════════════════════════════╝
+ */
+
+/**
  * Heady Notification Service — Port 3311
  * Multi-channel: Email, Push, In-App, SMS with priority queue + DLQ
  * Author: Eric Haywood | All constants φ-derived | ESM only

@@ -1,3 +1,12 @@
+# ╔══════════════════════════════════════════════════════════════════╗
+# ║   ██╗  ██╗███████╗ █████╗ ██████╗ ██╗   ██╗™                  ║
+# ║   ███████║█████╗  ███████║██║  ██║ ╚████╔╝                     ║
+# ║   ██║  ██║███████╗██║  ██║██████╔╝   ██║                       ║
+# ║   ✦ Built with Love by Heady™ — HeadySystems Inc. ✦           ║
+# ║   ◈ Sacred Geometry v4.0 — φ (1.618) Governs All              ║
+# ║   ◈ © 2026 HeadySystems Inc. — Eric Haywood, Founder           ║
+# ╚══════════════════════════════════════════════════════════════════╝
+
 # heady-security — Heady™ Service Container
 # Multi-stage build, phi-scaled everything
 FROM node:22-alpine AS deps

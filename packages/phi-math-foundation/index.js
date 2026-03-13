@@ -1,17 +1,25 @@
 /**
+ * ╔══════════════════════════════════════════════════════════════════╗
+ * ║                                                                  ║
+ * ║   ██╗  ██╗███████╗ █████╗ ██████╗ ██╗   ██╗                    ║
+ * ║   ██║  ██║██╔════╝██╔══██╗██╔══██╗╚██╗ ██╔╝                    ║
+ * ║   ███████║█████╗  ███████║██║  ██║ ╚████╔╝                     ║
+ * ║   ██╔══██║██╔══╝  ██╔══██║██║  ██║  ╚██╔╝                      ║
+ * ║   ██║  ██║███████╗██║  ██║██████╔╝   ██║                       ║
+ * ║   ╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝╚═════╝    ╚═╝                       ║
+ * ║                                                                  ║
+ * ║   ✦ Sacred Geometry v4.0 — φ (1.618) Governs All ✦             ║
+ * ║                                                                  ║
+ * ║   ◈ Built with Love by Heady™ — HeadySystems Inc.              ║
+ * ║   ◈ Founder: Eric Haywood                                       ║
+ * ║   ◈ 51 Provisional Patents — All Rights Reserved                ║
+ * ║                                                                  ║
+ * ║         ∞ · φ · ψ · √5 · Fibonacci · Golden Ratio · ∞          ║
+ * ║                                                                  ║
+ * ╚══════════════════════════════════════════════════════════════════╝
+ *
  * © 2026 HeadySystems Inc. PROPRIETARY AND CONFIDENTIAL.
- *
- * @heady/phi-math-foundation — Sacred Geometry math primitives.
- *
- * Golden ratio (φ = 1.618…) and its conjugate (ψ = 0.618…) define
- * every threshold, weight, scaling factor, and quality gate in Heady.
- *
- * Exports: PHI, PSI, fib, CSL_THRESHOLDS, PRESSURE_LEVELS,
- *   EVICTION_WEIGHTS, classifyPressure, cslGate, cslBlend,
- *   phiBackoff, phiFusionWeights, phiResourceWeights
- *
- * Founder: Eric Haywood
- * @module @heady/phi-math-foundation
+ * Liquid Node Architecture — Where Intelligence Flows Like Water.
  */
 
 "use strict";

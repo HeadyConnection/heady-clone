@@ -1,4 +1,14 @@
 /**
+ * ╔══════════════════════════════════════════════════════════════════╗
+ * ║   ██╗  ██╗███████╗ █████╗ ██████╗ ██╗   ██╗™                  ║
+ * ║   ███████║█████╗  ███████║██║  ██║ ╚████╔╝                     ║
+ * ║   ██║  ██║███████╗██║  ██║██████╔╝   ██║                       ║
+ * ║   ✦ Built with Love by Heady™ — HeadySystems Inc. ✦           ║
+ * ║   ◈ Sacred Geometry v4.0 · φ (1.618) · © 2026 Eric Haywood    ║
+ * ╚══════════════════════════════════════════════════════════════════╝
+ */
+
+/**
  * Heady Scheduler Service — Port 3315
  * Job scheduling with DAG deps, priority queue, φ-backoff retry, DLQ
  * Author: Eric Haywood | All constants φ-derived | ESM only

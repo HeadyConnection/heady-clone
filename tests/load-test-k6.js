@@ -1,14 +1,27 @@
 /**
- * load-test-k6.js — k6 Load Testing Framework for Heady Platform
+ * ╔══════════════════════════════════════════════════════════════════╗
+ * ║                                                                  ║
+ * ║   ██╗  ██╗███████╗ █████╗ ██████╗ ██╗   ██╗                    ║
+ * ║   ██║  ██║██╔════╝██╔══██╗██╔══██╗╚██╗ ██╔╝                    ║
+ * ║   ███████║█████╗  ███████║██║  ██║ ╚████╔╝                     ║
+ * ║   ██╔══██║██╔══╝  ██╔══██║██║  ██║  ╚██╔╝                      ║
+ * ║   ██║  ██║███████╗██║  ██║██████╔╝   ██║                       ║
+ * ║   ╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝╚═════╝    ╚═╝                       ║
+ * ║                                                                  ║
+ * ║   ✦ Sacred Geometry v4.0 — φ (1.618) Governs All ✦             ║
+ * ║                                                                  ║
+ * ║   ◈ Built with Love by Heady™ — HeadySystems Inc.              ║
+ * ║   ◈ Founder: Eric Haywood                                       ║
+ * ║   ◈ 51 Provisional Patents — All Rights Reserved                ║
+ * ║                                                                  ║
+ * ║         ∞ · φ · ψ · √5 · Fibonacci · Golden Ratio · ∞          ║
+ * ║                                                                  ║
+ * ╚══════════════════════════════════════════════════════════════════╝
  *
- * φ-scaled ramp stages, Fibonacci-sized virtual user counts,
- * CSL-gated threshold assertions, and multi-service targeting.
- *
- * Run: k6 run tests/load-test-k6.js
- * 
- * Eric Haywood — HeadySystems
- * License: PROPRIETARY
+ * © 2026 HeadySystems Inc. PROPRIETARY AND CONFIDENTIAL.
+ * Liquid Node Architecture — Where Intelligence Flows Like Water.
  */
+
 
 // k6 imports (k6 runtime provides these)
 import http from 'k6/http';
