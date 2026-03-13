@@ -1,0 +1,258 @@
+# HEADY_BRAND:BEGIN
+# ╔══════════════════════════════════════════════════════════════════╗
+# ║  ██╗  ██╗███████╗ █████╗ ██████╗ ██╗   ██╗                     ║
+# ║  ██║  ██║██╔════╝██╔══██╗██╔══██╗╚██╗ ██╔╝                     ║
+# ║  ███████║█████╗  ███████║██║  ██║ ╚████╔╝                      ║
+# ║  ██╔══██║██╔══╝  ██╔══██║██║  ██║  ╚██╔╝                       ║
+# ║  ██║  ██║███████╗██║  ██║██████╔╝   ██║                        ║
+# ║  ╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝╚═════╝    ╚═╝                        ║
+# ║                                                                  ║
+# ║  ∞ SACRED GEOMETRY ∞  Organic Systems · Breathing Interfaces    ║
+# ║  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━  ║
+# ║  FILE: configs/service-catalog.yaml                                                    ║
+# ║  LAYER: config                                                  ║
+# ╚══════════════════════════════════════════════════════════════════╝
+# HEADY_BRAND:END
+
+#
+# Service Catalog - Canonical registry of all Heady services, agents, and tools.
+# Orchestrator and System Brain use this as source of truth for routing and governance.
+
+version: "2.0.0"
+
+# ─── SERVICES ─────────────────────────────────────────────────────────────
+services:
+  - name: heady-manager
+    role: API Gateway & MCP Server
+    type: web
+    skills: [api-gateway, mcp-protocol, static-serving, rate-limiting, auth]
+    tools: [express, helmet, compression, ws]
+    endpoint: http://manager.headysystems.com:3300
+    healthCheck: /api/health
+    criticality: critical
+    owner: system
+    slos:
+      availability: 99.9
+      latencyP99Ms: 500
+
+  - name: heady-conductor
+    role: Python Orchestration Worker
+    type: worker
+    skills: [audit, build, lint, test, concept-extraction]
+    tools: [python, conductor-protocol]
+    endpoint: http://conductor.headysystems.com:8080
+    healthCheck: /health
+    criticality: critical
+    owner: system
+    slos:
+      availability: 99.0
+      latencyP99Ms: 5000
+
+  - name: heady-brain
+    role: System Brain Meta-Controller
+    type: internal
+    skills: [meta-control, readiness-eval, concept-alignment, auto-tuning, governance]
+    tools: [hc-brain, hc-readiness, concepts-index]
+    endpoint: http://brain.headysystems.com:8081
+    healthCheck: module-loaded
+    criticality: critical
+    owner: system
+    slos:
+      availability: 99.9
+      latencyP99Ms: 1000
+
+  - name: hc-supervisor
+    role: Multi-Agent Supervisor
+    type: internal
+    skills: [agent-routing, parallel-fanout, result-aggregation, direct-routing]
+    tools: [hc-supervisor, networking-client]
+    endpoint: http://supervisor.headysystems.com:8082
+    healthCheck: module-loaded
+    criticality: critical
+    owner: system
+    slos:
+      availability: 99.9
+      latencyP99Ms: 200
+
+  - name: heady-sync
+    role: Multi-Remote Git Synchronization
+    type: script
+    skills: [git-sync, worktree-management, multi-remote-push]
+    tools: [git, powershell]
+    endpoint: http://sync.headysystems.com:8083
+    healthCheck: script-runnable
+    criticality: high
+    owner: system
+
+  - name: hcautobuild
+    role: Automated Build Pipeline
+    type: script
+    skills: [auto-build, worktree-discovery, checkpoint-save, deploy-trigger]
+    tools: [powershell, git, npm]
+    endpoint: http://autobuild.headysystems.com:8084
+    healthCheck: script-runnable
+    criticality: high
+    owner: system
+
+# ─── AGENTS ───────────────────────────────────────────────────────────────
+agents:
+  - name: builder
+    role: Build & Deploy Agent
+    skills: [build, deploy, test, lint]
+    tools: [npm, git, render-api, powershell]
+    routing: direct
+    fallback: null
+    criticality: high
+
+  - name: researcher
+    role: Knowledge & News Ingestion Agent
+    skills: [news-ingestion, concept-extraction, trend-analysis]
+    tools: [algolia-hn, perplexity, llm-provider]
+    routing: direct
+    fallback: null
+    criticality: medium
+
+  - name: deployer
+    role: Infrastructure Deployment Agent
+    skills: [render-deploy, docker-build, cloud-bridge, env-sync]
+    tools: [render-api, docker, cloud-bridge]
+    routing: direct
+    fallback: null
+    criticality: high
+
+  - name: auditor
+    role: Audit & Compliance Agent
+    skills: [code-audit, security-scan, brand-check, dependency-audit]
+    tools: [eslint, snyk, brand-headers]
+    routing: direct
+    fallback: null
+    criticality: medium
+
+  - name: observer
+    role: Monitoring & Health Agent
+    skills: [health-check, metrics-collection, alert-evaluation, readiness-probe]
+    tools: [node-cron, health-scripts, cloudwatch-api]
+    routing: direct
+    fallback: null
+    criticality: critical
+
+  - name: claude-code
+    role: AI Code Agent (Claude Code CLI)
+    skills: [code-analysis, security-audit, documentation, concept-alignment, task-planning, governance-check, readiness-eval]
+    tools: [claude-cli, read, grep, glob, bash]
+    routing: direct
+    fallback: null
+    criticality: high
+
+# ─── EXTERNAL INTEGRATIONS ────────────────────────────────────────────────
+externalIntegrations:
+  - name: render-com
+    type: deployment-platform
+    domain: api.render.com
+    proxyPolicy: external-proxy-allowed
+    rateLimit: 30/min
+
+  - name: algolia-hn
+    type: news-api
+    domain: hn.algolia.com
+    proxyPolicy: external-proxy-allowed
+    rateLimit: 60/min
+
+  - name: huggingface
+    type: ml-platform
+    domain: huggingface.co
+    proxyPolicy: external-proxy-allowed
+    rateLimit: 30/min
+
+  - name: github
+    type: scm
+    domain: api.github.com
+    proxyPolicy: external-proxy-allowed
+    rateLimit: 60/min
+
+  - name: cloudflare
+    type: cdn-dns
+    domain: api.cloudflare.com
+    proxyPolicy: external-proxy-allowed
+    rateLimit: 30/min
+
+  - name: google-vertex-ai
+    type: ml-platform
+    domain: us-central1-aiplatform.googleapis.com
+    proxyPolicy: external-proxy-allowed
+    rateLimit: 30/min
+
+  - name: google-ai-studio
+    type: llm-api
+    domain: generativelanguage.googleapis.com
+    proxyPolicy: external-proxy-allowed
+    rateLimit: 60/min
+
+  - name: google-colab
+    type: notebook-platform
+    domain: colab.research.google.com
+    proxyPolicy: external-proxy-allowed
+    rateLimit: 10/min
+
+# ─── LIQUID NODES (MCP-Connected External Interfaces) ─────────────────────
+liquidNodes:
+  - name: github-node
+    type: scm
+    status: needs_token
+    envVar: GITHUB_TOKEN
+    capabilities: [list-repos, repo-info, search-code]
+    vaultKey: heady-vault-manifest
+
+  - name: gists-node
+    type: code-snippets
+    status: needs_token
+    envVar: GITHUB_TOKEN
+    capabilities: [list-gists, get-gist, create-gist]
+
+  - name: cloudflare-node
+    type: infrastructure
+    status: needs_token
+    envVar: CLOUDFLARE_API_TOKEN
+    capabilities: [list-zones, dns-records, list-workers, list-pages]
+
+  - name: vertex-ai-node
+    type: ml-inference
+    status: needs_token
+    envVar: GCLOUD_ACCESS_TOKEN
+    capabilities: [list-models, list-endpoints, predict]
+
+  - name: ai-studio-node
+    type: llm-generation
+    status: needs_token
+    envVar: GOOGLE_AI_KEY
+    capabilities: [generate-text]
+
+  - name: colab-node
+    type: notebooks
+    status: needs_token
+    envVar: GOOGLE_DRIVE_TOKEN
+    capabilities: [list-notebooks, get-notebook]
+
+  - name: latent-space-node
+    type: vector-memory
+    status: active
+    envVar: null
+    capabilities: [store, search, list, delete]
+    currentVectors: 43
+
+# ─── HEADY VAULT ──────────────────────────────────────────────────────────
+vault:
+  name: HeadyVault
+  source: .Heady/.shit
+  latentSpaceKey: heady-vault-manifest
+  totalSecrets: 45
+  categories:
+    ai-llm: [ANTHROPIC_API_KEY, CLAUDE_API_KEY, OPENAI_API_KEY, GROQ_API_KEY, PERPLEXITY_API_KEY, HF_TOKEN, GEMINI_API_KEY, GCLOUD_API_KEY]
+    infrastructure: [DATABASE_URL, NEON_API_KEY, UPSTASH_REDIS_REST_URL, FIREBASE_API_KEY, PINECONE_API_KEY]
+    cloud-deploy: [CLOUDFLARE_API_TOKEN, SENTRY_AUTH_TOKEN, SENTRY_DSN]
+    scm: [GITHUB_TOKEN, GITHUB_TOKEN_SECONDARY]
+    finance: [STRIPE_SECRET_KEY]
+    auth: [ADMIN_TOKEN, HEADY_API_KEY, OP_SERVICE_ACCOUNT_TOKEN]
+  rotationPolicy: quarterly
+  lastRotation: unknown
+  nextRotation: 2026-03-15

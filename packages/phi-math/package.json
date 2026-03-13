@@ -1,0 +1,21 @@
+{
+  "name": "@heady/phi-math",
+  "version": "1.0.0",
+  "description": "Sacred Geometry and Golden Ratio constants for Heady systems",
+  "main": "index.js",
+  "license": "MIT",
+  "keywords": [
+    "heady",
+    "phi",
+    "golden-ratio",
+    "sacred-geometry",
+    "fibonacci",
+    "constants"
+  ],
+  "author": "Heady Systems",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/HeadySystems/heady-monorepo.git",
+    "directory": "packages/phi-math"
+  }
+}
