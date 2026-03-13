@@ -1,0 +1,31 @@
+{
+  "project": "heady-clone",
+  "organization": "HeadySystems Inc.",
+  "founder": "Eric Haywood",
+  "version": "4.0.0",
+  "syncTimestamp": "2026-03-13T16:36:44Z",
+  "commitHash": "0962cdcdcbe8d248ece2c9f5dd1a7ec42eb740f2",
+  "branch": "main",
+  "totalFiles": 33212,
+  "packages": {
+    "@heady/phi-math-foundation": "4.0.0",
+    "@heady/structured-logger": "4.0.0",
+    "@heady/heady-memory": "4.0.0",
+    "@heady/heady-autocontext": "4.0.0"
+  },
+  "engines": 18,
+  "sites": 7,
+  "docs": 343,
+  "coreModules": 30,
+  "tests": {
+    "suites": 3,
+    "total": 40,
+    "passing": 40
+  },
+  "architecture": {
+    "sacredGeometry": "v4.0 — φ (1.618) governs all thresholds",
+    "memoryTiers": ["T0-Working (21 slots)", "T1-ShortTerm (144K, 47h TTL)", "T2-LongTerm (permanent, 30d half-life)"],
+    "autoContextPasses": ["Intent", "Memory", "Grounding", "Compression", "Confidence"],
+    "colabRuntimes": 4
+  }
+}
