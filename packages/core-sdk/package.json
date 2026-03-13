@@ -1,0 +1,8 @@
+{
+  "name": "@heady/core-sdk",
+  "version": "4.0.0",
+  "description": "Agentic coding schema and SDK interfaces",
+  "main": "src/agentic-coding-schema.ts",
+  "license": "UNLICENSED",
+  "private": true
+}

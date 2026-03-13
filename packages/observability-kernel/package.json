@@ -1,0 +1,8 @@
+{
+  "name": "@heady/observability-kernel",
+  "version": "4.0.0",
+  "description": "Complete observability — structured logging, tracing, metrics, health checks",
+  "main": "index.ts",
+  "license": "UNLICENSED",
+  "private": true
+}

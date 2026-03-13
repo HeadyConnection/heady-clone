@@ -1,0 +1,8 @@
+{
+  "name": "@heady/agent-identity",
+  "version": "4.0.0",
+  "description": "Agent identity management and authentication",
+  "main": "index.js",
+  "license": "UNLICENSED",
+  "private": true
+}

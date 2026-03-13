@@ -1,0 +1,8 @@
+{
+  "name": "@heady/types",
+  "version": "4.0.0",
+  "description": "Shared TypeScript type definitions",
+  "main": "index.js",
+  "license": "UNLICENSED",
+  "private": true
+}

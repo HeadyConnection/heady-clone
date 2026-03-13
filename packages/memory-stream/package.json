@@ -1,0 +1,8 @@
+{
+  "name": "@heady/memory-stream",
+  "version": "4.0.0",
+  "description": "Streaming memory interface for real-time context flow",
+  "main": "index.js",
+  "license": "UNLICENSED",
+  "private": true
+}

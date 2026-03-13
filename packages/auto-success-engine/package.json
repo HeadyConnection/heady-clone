@@ -1,0 +1,8 @@
+{
+  "name": "@heady/auto-success-engine",
+  "version": "4.0.0",
+  "description": "Auto-success heartbeat — 13 categories, 4 tiers, phi-cycle system introspection",
+  "main": "index.ts",
+  "license": "UNLICENSED",
+  "private": true
+}

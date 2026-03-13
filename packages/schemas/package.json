@@ -1,0 +1,8 @@
+{
+  "name": "@heady/schemas",
+  "version": "4.0.0",
+  "description": "AJV-based JSON Schema validation with caching and batch support",
+  "main": "validate.ts",
+  "license": "UNLICENSED",
+  "private": true
+}

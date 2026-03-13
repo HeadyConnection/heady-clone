@@ -1,0 +1,8 @@
+{
+  "name": "@heady/heady-types",
+  "version": "4.0.0",
+  "description": "Heady domain-specific type definitions",
+  "main": "index.js",
+  "license": "UNLICENSED",
+  "private": true
+}

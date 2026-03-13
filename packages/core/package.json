@@ -1,0 +1,8 @@
+{
+  "name": "@heady/core",
+  "version": "4.0.0",
+  "description": "Base service configuration with Zod schema validation",
+  "main": "src/config.ts",
+  "license": "UNLICENSED",
+  "private": true
+}

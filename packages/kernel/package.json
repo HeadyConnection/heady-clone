@@ -1,0 +1,8 @@
+{
+  "name": "@heady/kernel",
+  "version": "4.0.0",
+  "description": "Heady kernel — core process scheduler and resource manager",
+  "main": "index.js",
+  "license": "UNLICENSED",
+  "private": true
+}

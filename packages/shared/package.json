@@ -1,0 +1,8 @@
+{
+  "name": "@heady/shared",
+  "version": "4.0.0",
+  "description": "Shared workflow runners and draft implementations",
+  "main": "drafts/ai_workflow/ai-workflow-runner.js",
+  "license": "UNLICENSED",
+  "private": true
+}

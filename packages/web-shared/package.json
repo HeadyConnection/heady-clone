@@ -1,0 +1,8 @@
+{
+  "name": "@heady/web-shared",
+  "version": "4.0.0",
+  "description": "Shared CSS tokens, sacred geometry, and phi-math web utilities",
+  "main": "js/heady-shared.js",
+  "license": "UNLICENSED",
+  "private": true
+}

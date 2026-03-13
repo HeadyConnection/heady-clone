@@ -1,0 +1,8 @@
+{
+  "name": "@heady/hc-supervisor",
+  "version": "4.0.0",
+  "description": "System supervision and task coordination",
+  "main": "index.js",
+  "license": "UNLICENSED",
+  "private": true
+}

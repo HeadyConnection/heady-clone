@@ -1,0 +1,8 @@
+{
+  "name": "@heady/heady-content-engine",
+  "version": "4.0.0",
+  "description": "3-layer content architecture loader (global/product/domain)",
+  "main": "src/content-loader.ts",
+  "license": "UNLICENSED",
+  "private": true
+}

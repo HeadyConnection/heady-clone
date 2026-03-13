@@ -1,0 +1,8 @@
+{
+  "name": "@heady/vector-memory",
+  "version": "4.0.0",
+  "description": "3D vector memory with PCA projection, cosine search, drift detection",
+  "main": "index.ts",
+  "license": "UNLICENSED",
+  "private": true
+}

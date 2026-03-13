@@ -1,0 +1,8 @@
+{
+  "name": "@heady/agents",
+  "version": "4.0.0",
+  "description": "Agent catalog — 18 role profiles with resource tiers and safety constraints",
+  "main": "catalog.yaml",
+  "license": "UNLICENSED",
+  "private": true
+}

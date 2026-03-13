@@ -1,0 +1,8 @@
+{
+  "name": "@heady/csl-router",
+  "version": "4.0.0",
+  "description": "CSL-aware routing engine for liquid node message dispatch",
+  "main": "index.js",
+  "license": "UNLICENSED",
+  "private": true
+}

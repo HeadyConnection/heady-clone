@@ -1,0 +1,8 @@
+{
+  "name": "@heady/liquid-deploy",
+  "version": "4.0.0",
+  "description": "Projection engine — latent-space AST to physical filesystem with atomic ops",
+  "main": "index.ts",
+  "license": "UNLICENSED",
+  "private": true
+}

@@ -1,0 +1,8 @@
+{
+  "name": "@heady/latent-boundary",
+  "version": "4.0.0",
+  "description": "Latent space boundary detection and enforcement",
+  "main": "index.js",
+  "license": "UNLICENSED",
+  "private": true
+}

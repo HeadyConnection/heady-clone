@@ -1,0 +1,8 @@
+{
+  "name": "@heady/redis",
+  "version": "4.0.0",
+  "description": "Redis client wrapper with phi-backoff reconnection",
+  "main": "index.js",
+  "license": "UNLICENSED",
+  "private": true
+}

@@ -1,0 +1,14 @@
+{
+  "name": "@heady/heady-swarm-orchestrator",
+  "version": "4.0.0",
+  "description": "HeadySwarm Orchestrator — multi-swarm coordinator with 17 canonical swarms, intent-aware routing, and HeadyMemory integration",
+  "main": "index.js",
+  "license": "UNLICENSED",
+  "private": true,
+  "dependencies": {
+    "@heady/phi-math-foundation": "file:../phi-math-foundation",
+    "@heady/structured-logger": "file:../structured-logger",
+    "@heady/heady-memory": "file:../heady-memory",
+    "@heady/heady-autocontext": "file:../heady-autocontext"
+  }
+}

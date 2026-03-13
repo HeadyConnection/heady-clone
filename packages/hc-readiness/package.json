@@ -1,0 +1,8 @@
+{
+  "name": "@heady/hc-readiness",
+  "version": "4.0.0",
+  "description": "System readiness assessment and preparation",
+  "main": "index.js",
+  "license": "UNLICENSED",
+  "private": true
+}

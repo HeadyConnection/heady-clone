@@ -1,0 +1,8 @@
+{
+  "name": "@heady/hc-health",
+  "version": "4.0.0",
+  "description": "System health monitoring and diagnostics",
+  "main": "index.js",
+  "license": "UNLICENSED",
+  "private": true
+}

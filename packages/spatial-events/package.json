@@ -1,0 +1,8 @@
+{
+  "name": "@heady/spatial-events",
+  "version": "4.0.0",
+  "description": "Spatial event system for distributed agent coordination",
+  "main": "index.js",
+  "license": "UNLICENSED",
+  "private": true
+}

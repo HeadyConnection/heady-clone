@@ -1,0 +1,8 @@
+{
+  "name": "@heady/csl-engine",
+  "version": "4.0.0",
+  "description": "CSL (Conscious State Level) computation engine",
+  "main": "index.js",
+  "license": "UNLICENSED",
+  "private": true
+}

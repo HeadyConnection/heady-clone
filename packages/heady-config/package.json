@@ -1,0 +1,8 @@
+{
+  "name": "@heady/heady-config",
+  "version": "4.0.0",
+  "description": "Structured logging, middleware factory, and service configuration",
+  "main": "logging.ts",
+  "license": "UNLICENSED",
+  "private": true
+}

@@ -1,0 +1,8 @@
+{
+  "name": "@heady/hc-checkpoint",
+  "version": "4.0.0",
+  "description": "System checkpointing and state sync",
+  "main": "index.js",
+  "license": "UNLICENSED",
+  "private": true
+}

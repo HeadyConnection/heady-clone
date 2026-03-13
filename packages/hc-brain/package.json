@@ -1,0 +1,8 @@
+{
+  "name": "@heady/hc-brain",
+  "version": "4.0.0",
+  "description": "System intelligence, analysis, and decision-making",
+  "main": "index.js",
+  "license": "UNLICENSED",
+  "private": true
+}
