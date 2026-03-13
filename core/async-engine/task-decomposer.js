@@ -9,14 +9,14 @@
  * @module core/async-engine/task-decomposer
  */
 
-import { randomUUID } from 'crypto';
-import {
+const { randomUUID } = require('crypto');
+const {
   PHI, PSI, fib,
   CSL_THRESHOLDS,
   phiFusionWeights,
-} from '@heady/phi-math-foundation';
-import { createLogger } from '@heady/structured-logger';
-import { cosine, domainToVector } from '../swarm-engine/bee-lifecycle.js';
+} = require('@heady/phi-math-foundation');
+const { createLogger } = require('@heady/structured-logger');
+const { cosine, domainToVector } = require('../swarm-engine/bee-lifecycle.js');
 
 const logger = createLogger('task-decomposer');
 
@@ -355,4 +355,4 @@ class TaskDecomposer {
   }
 }
 
-export { TaskDecomposer, SUBTASK_STATE, MAX_DEPTH, MAX_SUBTASKS };
+module.exports = { TaskDecomposer, SUBTASK_STATE, MAX_DEPTH, MAX_SUBTASKS };

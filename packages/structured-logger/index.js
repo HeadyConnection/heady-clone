@@ -1,149 +1,63 @@
-// HEADY_BRAND:BEGIN
-// ╔══════════════════════════════════════════════════════════════════╗
-// ║  Structured Logger — JSON-formatted Logging for Heady Services  ║
-// ║  ∞ SACRED GEOMETRY ∞  Organic Systems · Breathing Interfaces    ║
-// ╚══════════════════════════════════════════════════════════════════╝
-// HEADY_BRAND:END
-
-const { PHI_TIMEOUT_REQUEST } = require('@heady/phi-math');
-
-// ═══════════════════════════════════════════════════════════════════
-// Log Levels and Configuration
-// ═══════════════════════════════════════════════════════════════════
-
-const LOG_LEVELS = {
-  debug: 0,   // Detailed diagnostic information
-  info: 1,    // General informational messages
-  warn: 2,    // Warning messages (potential issues)
-  error: 3,   // Error messages (failures)
-  fatal: 4,   // Fatal errors (unrecoverable conditions)
-};
-
-// Determine active log level from environment variable
-const currentLevel = LOG_LEVELS[process.env.LOG_LEVEL || 'info'];
-
-// ═══════════════════════════════════════════════════════════════════
-// Logger Factory
-// ═══════════════════════════════════════════════════════════════════
-
 /**
- * Create a structured logger instance for a given service and domain
+ * (c) 2026 HeadySystems Inc. PROPRIETARY AND CONFIDENTIAL.
  *
- * @param {string} service - Service name (e.g., 'heady-manager', 'hc-pipeline')
- * @param {string} domain - Logical domain (e.g., 'pipeline', 'network', 'storage')
- * @returns {Object} Logger with methods: debug, info, warn, error, fatal, child
+ * @heady/structured-logger - Structured JSON logging with correlation IDs.
+ * Wraps pino (if available) or falls back to console with structured output.
+ *
+ * Founder: Eric Haywood
+ * @module @heady/structured-logger
  */
-function createLogger(service, domain = 'system') {
-  /**
-   * Internal log function that writes structured JSON to appropriate stream
-   *
-   * @param {string} level - Log level (debug, info, warn, error, fatal)
-   * @param {string} message - Log message
-   * @param {Object} meta - Additional metadata to include in log entry
-   */
-  function log(level, message, meta = {}) {
-    // Skip logs below current level threshold
-    if (LOG_LEVELS[level] < currentLevel) return;
 
-    // Build structured log entry
-    const entry = {
-      ts: new Date().toISOString(),    // RFC 3339 timestamp
-      level,                            // Log level
-      service,                          // Service identifier
-      domain,                           // Logical domain
-      message,                          // Main log message
-      ...meta,                          // Merged metadata
-      pid: process.pid,                 // Process ID
-      env: process.env.NODE_ENV || 'development', // Environment
-    };
+"use strict";
 
-    // Select output stream (errors to stderr, others to stdout)
-    const output = (level === 'error' || level === 'fatal') ? process.stderr : process.stdout;
+let pino;
+try { pino = require("pino"); } catch { pino = null; }
 
-    // Write as JSON line (newline-delimited for streaming parsers)
-    output.write(JSON.stringify(entry) + '\n');
+function generateCorrelationId() {
+  return "hdy_" + Date.now().toString(36) + "_" + Math.random().toString(36).slice(2, 8);
+}
+
+function createLogger(name, opts) {
+  opts = opts || {};
+  const level = process.env.LOG_LEVEL || opts.level || "info";
+
+  if (pino) {
+    return pino({
+      name: "heady:" + name,
+      level: level,
+      base: { service: name, version: process.env.HEADY_VERSION || "4.0.0" },
+      timestamp: pino.stdTimeFunctions.isoTime,
+      formatters: { level: function(label) { return { level: label }; } },
+    });
   }
 
-  /**
-   * Logger instance with level-specific methods
-   */
+  // Fallback structured console logger
+  var levels = { trace: 10, debug: 20, info: 30, warn: 40, error: 50, fatal: 60 };
+  var minLevel = levels[level] || 30;
+
+  function log(lvl, msg, extra) {
+    if ((levels[lvl] || 30) < minLevel) return;
+    var entry = Object.assign({
+      level: lvl, service: name, msg: msg, ts: new Date().toISOString()
+    }, extra || {});
+    var method = (lvl === "error" || lvl === "fatal") ? "error" : lvl === "warn" ? "warn" : "log";
+    console[method](JSON.stringify(entry));
+  }
+
   return {
-    /**
-     * Debug level logging (development diagnostics)
-     */
-    debug: (msg, meta) => log('debug', msg, meta),
-
-    /**
-     * Info level logging (general operations)
-     */
-    info: (msg, meta) => log('info', msg, meta),
-
-    /**
-     * Warn level logging (potential issues)
-     */
-    warn: (msg, meta) => log('warn', msg, meta),
-
-    /**
-     * Error level logging (recoverable failures)
-     */
-    error: (msg, meta) => log('error', msg, meta),
-
-    /**
-     * Fatal level logging (unrecoverable failures)
-     */
-    fatal: (msg, meta) => log('fatal', msg, meta),
-
-    /**
-     * Create a child logger with additional context
-     * Useful for nested operations (e.g., request handlers)
-     *
-     * @param {Object} childMeta - Context to add to all child logs
-     * @returns {Object} Child logger instance
-     */
-    child: (childMeta) => createLogger(service, childMeta.domain || domain),
+    trace: function(msg, extra) { log("trace", msg, extra); },
+    debug: function(msg, extra) { log("debug", msg, extra); },
+    info:  function(msg, extra) { log("info", msg, extra); },
+    warn:  function(msg, extra) { log("warn", msg, extra); },
+    error: function(msg, extra) { log("error", msg, extra); },
+    fatal: function(msg, extra) { log("fatal", msg, extra); },
+    child: function(bindings) { return createLogger(name + ":" + (bindings.component || "child"), opts); },
   };
 }
 
-// ═══════════════════════════════════════════════════════════════════
-// Convenience Factory with Default Service
-// ═══════════════════════════════════════════════════════════════════
-
-/**
- * Create a logger with automatic service detection
- * Used for one-off logging without explicit service registration
- *
- * @param {Object} options - Logger options
- * @param {string} options.service - Service name
- * @param {string} options.domain - Domain (default: 'system')
- * @returns {Object} Logger instance
- */
-function createServiceLogger(options = {}) {
-  const service = options.service || process.env.SERVICE_NAME || 'heady-service';
-  const domain = options.domain || 'system';
-  return createLogger(service, domain);
+function withCorrelation(fn) {
+  var corrId = generateCorrelationId();
+  return { correlationId: corrId, result: fn(corrId) };
 }
 
-// ═══════════════════════════════════════════════════════════════════
-// Default Global Logger
-// ═══════════════════════════════════════════════════════════════════
-
-const defaultLogger = createServiceLogger();
-
-// ═══════════════════════════════════════════════════════════════════
-// Module Exports
-// ═══════════════════════════════════════════════════════════════════
-
-module.exports = {
-  // Logger factory
-  createLogger,
-  createServiceLogger,
-
-  // Default logger instance
-  defaultLogger,
-
-  // Log levels for reference
-  LOG_LEVELS,
-
-  // Re-export phi-math constants for convenience
-  PHI_TIMEOUT_REQUEST,
-};
+module.exports = { createLogger: createLogger, withCorrelation: withCorrelation, generateCorrelationId: generateCorrelationId };

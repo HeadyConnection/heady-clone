@@ -11,14 +11,16 @@
  * @module core/vector-ops/hybrid-search
  */
 
-import {
+const {
   PHI, PSI, fib,
   CSL_THRESHOLDS,
   cslGate,
   phiFusionWeights,
-} from '@heady/phi-math-foundation';
-import { createLogger } from '@heady/structured-logger';
-import { cslAND, normalize, topK as vectorTopK } from './csl-engine.js';
+} = require('@heady/phi-math-foundation');
+const { createLogger } = require('@heady/structured-logger');
+const _cslEngine = require('./csl-engine.js');
+const { cslAND, normalize } = _cslEngine;
+const vectorTopK = _cslEngine.topK;
 
 const logger = createLogger('hybrid-search');
 
@@ -314,7 +316,7 @@ function tokenize(text) {
     .filter(t => t.length > 1 && !STOPWORDS.has(t));
 }
 
-export {
+module.exports = {
   HybridSearch,
   BM25Index,
   RRF_K,

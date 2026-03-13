@@ -3,12 +3,12 @@
 // © 2026 HeadySystems Inc. — Eric Haywood, Founder
 // ═══════════════════════════════════════════════════════════════════════════════
 
-import {
+const {
   PHI, PSI, PSI2, PSI3, FIB, CSL_THRESHOLDS,
   cosineSimilarity, normalize, phiFusionWeights, sha256, cslGate,
   deterministicRandom, SEED
-} from '../shared/phi-math-v2.js';
-import { cslCONSENSUS, textToEmbedding, DIM } from '../shared/csl-engine-v2.js';
+} = require('../shared/phi-math-v2.js');
+const { cslCONSENSUS, textToEmbedding, DIM } = require('../shared/csl-engine-v2.js');
 
 const COUNCIL_MODELS = Object.freeze([
   { id: 'claude-sonnet',  provider: 'anthropic', strengths: ['reasoning', 'code', 'analysis'] },
@@ -171,5 +171,5 @@ class CouncilMode {
   }
 }
 
-export { CouncilMode, COUNCIL_MODELS };
-export default CouncilMode;
+module.exports = { CouncilMode, COUNCIL_MODELS };
+module.exports = $1;

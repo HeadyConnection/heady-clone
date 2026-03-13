@@ -3,11 +3,11 @@
 // © 2026 HeadySystems Inc. — Eric Haywood, Founder
 // ═══════════════════════════════════════════════════════════════════════════════
 
-import {
+const {
   PHI, PSI, PSI2, PSI3, FIB, CSL_THRESHOLDS,
   cosineSimilarity, phiFusionWeights, phiTokenBudgets, cslGate, sha256
-} from '../shared/phi-math-v2.js';
-import { textToEmbedding, DIM } from '../shared/csl-engine-v2.js';
+} = require('../shared/phi-math-v2.js');
+const { textToEmbedding, DIM } = require('../shared/csl-engine-v2.js');
 
 const CONTEXT_SOURCES = Object.freeze([
   'vector-memory', 'file-system', 'conversation-history',
@@ -149,5 +149,5 @@ class HeadyBrains {
   }
 }
 
-export { HeadyBrains, CONTEXT_SOURCES, TOKEN_BUDGETS };
-export default HeadyBrains;
+module.exports = { HeadyBrains, CONTEXT_SOURCES, TOKEN_BUDGETS };
+module.exports = $1;

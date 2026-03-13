@@ -14,12 +14,12 @@
  * @module core/liquid-nodes/topology
  */
 
-import {
+const {
   PHI, PSI, fib,
-} from '@heady/phi-math-foundation';
-import { createLogger } from '@heady/structured-logger';
-import { PLATFORM } from './node-registry.js';
-import { computeDistance } from './vector-router.js';
+} = require('@heady/phi-math-foundation');
+const { createLogger } = require('@heady/structured-logger');
+const { PLATFORM } = require('./node-registry.js');
+const { computeDistance } = require('./vector-router.js');
 
 const logger = createLogger('topology');
 
@@ -307,7 +307,7 @@ class Topology {
   }
 }
 
-export {
+module.exports = {
   Topology,
   LAYERS,
   CONNECTION_WEIGHTS,

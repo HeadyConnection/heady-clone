@@ -14,17 +14,17 @@
  * @module core/swarm-engine/swarm-manager
  */
 
-import { EventEmitter } from 'events';
-import { randomUUID } from 'crypto';
-import {
+const { EventEmitter } = require('events');
+const { randomUUID } = require('crypto');
+const {
   PHI, PSI, fib,
   CSL_THRESHOLDS,
   PRESSURE_LEVELS,
   classifyPressure,
   phiFusionWeights,
-} from '@heady/phi-math-foundation';
-import { createLogger } from '@heady/structured-logger';
-import { HeadyBee, BEE_STATE, domainToVector, cosine } from './bee-lifecycle.js';
+} = require('@heady/phi-math-foundation');
+const { createLogger } = require('@heady/structured-logger');
+const { HeadyBee, BEE_STATE, domainToVector, cosine } = require('./bee-lifecycle.js');
 
 const logger = createLogger('swarm-manager');
 
@@ -479,7 +479,7 @@ class SwarmManager extends EventEmitter {
   }
 }
 
-export {
+module.exports = {
   SwarmManager,
   HeadySwarm,
   CANONICAL_SWARMS,

@@ -876,6 +876,58 @@ try {
   logger.warn(`  ⚠ Colab Runtime Manager not loaded: ${err.message}`);
 }
 
+// ═══════════════════════════════════════════════════════════════════════
+// ─── CORE MODULES: Liquid Nodes + Swarm Engine + Vector Ops ─────────
+// ═══════════════════════════════════════════════════════════════════════
+
+// ─── Liquid Node Mesh (core/liquid-nodes) ───────────────────────────
+let liquidNodes = null;
+try {
+  liquidNodes = require("./core/liquid-nodes");
+  app.get("/api/liquid-nodes/status", (req, res) => {
+    res.json({ ok: true, module: "core/liquid-nodes", loaded: true, ts: new Date().toISOString() });
+  });
+  logger.info("  ∞ Liquid Node Mesh: LOADED (core/liquid-nodes) — φ-weighted vector routing");
+} catch (err) {
+  logger.warn(`  ⚠ Liquid Node Mesh not loaded: ${err.message}`);
+}
+
+// ─── Swarm Engine (core/swarm-engine) ───────────────────────────────
+let swarmEngine = null;
+try {
+  swarmEngine = require("./core/swarm-engine");
+  app.get("/api/swarm-engine/status", (req, res) => {
+    res.json({ ok: true, module: "core/swarm-engine", loaded: true, ts: new Date().toISOString() });
+  });
+  logger.info("  ∞ Swarm Engine: LOADED (core/swarm-engine) — 17 canonical swarms");
+} catch (err) {
+  logger.warn(`  ⚠ Swarm Engine not loaded: ${err.message}`);
+}
+
+// ─── Vector Ops (core/vector-ops) ───────────────────────────────────
+let vectorOps = null;
+try {
+  vectorOps = require("./core/vector-ops");
+  app.get("/api/vector-ops/status", (req, res) => {
+    res.json({ ok: true, module: "core/vector-ops", loaded: true, ts: new Date().toISOString() });
+  });
+  logger.info("  ∞ Vector Ops: LOADED (core/vector-ops) — CSL + hybrid search + embeddings");
+} catch (err) {
+  logger.warn(`  ⚠ Vector Ops not loaded: ${err.message}`);
+}
+
+// ─── Async Engine (core/async-engine) ───────────────────────────────
+let asyncEngine = null;
+try {
+  asyncEngine = require("./core/async-engine");
+  app.get("/api/async-engine/status", (req, res) => {
+    res.json({ ok: true, module: "core/async-engine", loaded: true, ts: new Date().toISOString() });
+  });
+  logger.info("  ∞ Async Engine: LOADED (core/async-engine) — parallel task decomposition");
+} catch (err) {
+  logger.warn(`  ⚠ Async Engine not loaded: ${err.message}`);
+}
+
 // ─── Cross-Engine Wiring (Newly Connected Engines) ──────────────────
 try {
   // Wire orchestrator into pipeline for semantic task routing
@@ -962,11 +1014,16 @@ app.get("/api/system/engines", (req, res) => {
       orchestrator: { loaded: !!orchestrator, module: "src/hc_orchestrator.js" },
       conductor: { loaded: !!conductor, module: "src/hc_conductor.js" },
       colabRuntimeManager: { loaded: !!colabRuntimeManager, module: "services/colab-runtime-manager.js" },
+      liquidNodes: { loaded: !!liquidNodes, module: "core/liquid-nodes" },
+      swarmEngine: { loaded: !!swarmEngine, module: "core/swarm-engine" },
+      vectorOps: { loaded: !!vectorOps, module: "core/vector-ops" },
+      asyncEngine: { loaded: !!asyncEngine, module: "core/async-engine" },
     },
-    totalEngines: 14,
+    totalEngines: 18,
     loadedCount: [pipeline, mcPlanScheduler, patternEngine, selfCritiqueEngine, storyDriver,
       taskScheduler, resourceManager, resourceDiagnostics, beeFactory, hiveCoordinator,
-      latentSpace, orchestrator, conductor, colabRuntimeManager].filter(Boolean).length,
+      latentSpace, orchestrator, conductor, colabRuntimeManager,
+      liquidNodes, swarmEngine, vectorOps, asyncEngine].filter(Boolean).length,
     ts: new Date().toISOString(),
   });
 });

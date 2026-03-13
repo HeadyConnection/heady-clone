@@ -18,12 +18,12 @@
  * @module core/vector-ops/csl-engine
  */
 
-import {
+const {
   PHI, PSI, fib,
   CSL_THRESHOLDS,
   cslGate,
   cslBlend,
-} from '@heady/phi-math-foundation';
+} = require('@heady/phi-math-foundation');
 
 const DIM = 384;
 
@@ -297,7 +297,7 @@ function reduceDimensions(v, targetDim) {
   return normalize(out);
 }
 
-export {
+module.exports = {
   // Fundamental
   normalize,
   dot,

@@ -8,16 +8,16 @@
  * @module core/async-engine/parallel-executor
  */
 
-import { EventEmitter } from 'events';
-import {
+const { EventEmitter } = require('events');
+const {
   PHI, PSI, fib,
   CSL_THRESHOLDS,
   phiBackoff,
   classifyPressure,
   phiFusionWeights,
-} from '@heady/phi-math-foundation';
-import { createLogger } from '@heady/structured-logger';
-import { SUBTASK_STATE } from './task-decomposer.js';
+} = require('@heady/phi-math-foundation');
+const { createLogger } = require('@heady/structured-logger');
+const { SUBTASK_STATE } = require('./task-decomposer.js');
 
 const logger = createLogger('parallel-executor');
 
@@ -317,7 +317,7 @@ async function defaultExecuteTask(subtask) {
   return { subtaskId: subtask.id, status: 'completed', executedAt: Date.now() };
 }
 
-export {
+module.exports = {
   ParallelExecutor,
   CONCURRENCY,
   EXECUTOR_STATE,

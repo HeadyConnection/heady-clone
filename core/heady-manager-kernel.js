@@ -3,11 +3,11 @@
 // © 2026 HeadySystems Inc. — Eric Haywood, Founder
 // ═══════════════════════════════════════════════════════════════════════════════
 
-import {
+const {
   PHI, PSI, PSI2, PSI3, FIB, CSL_THRESHOLDS,
   sha256, cslGate, phiBackoff, deterministicRandom, SEED
-} from '../shared/phi-math-v2.js';
-import { textToEmbedding, DIM } from '../shared/csl-engine-v2.js';
+} = require('../shared/phi-math-v2.js');
+const { textToEmbedding, DIM } = require('../shared/csl-engine-v2.js');
 
 const MODULE_STATES = Object.freeze({
   UNLOADED: 'unloaded',
@@ -199,5 +199,5 @@ class HeadyManagerKernel {
   }
 }
 
-export { HeadyManagerKernel, MODULE_STATES };
-export default HeadyManagerKernel;
+module.exports = { HeadyManagerKernel, MODULE_STATES };
+module.exports = $1;

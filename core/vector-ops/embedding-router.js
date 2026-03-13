@@ -12,14 +12,14 @@
  * @module core/vector-ops/embedding-router
  */
 
-import { EventEmitter } from 'events';
-import {
+const { EventEmitter } = require('events');
+const {
   PHI, PSI, fib,
   CSL_THRESHOLDS,
   phiBackoff,
   phiFusionWeights,
-} from '@heady/phi-math-foundation';
-import { createLogger } from '@heady/structured-logger';
+} = require('@heady/phi-math-foundation');
+const { createLogger } = require('@heady/structured-logger');
 
 const logger = createLogger('embedding-router');
 
@@ -416,7 +416,7 @@ function truncateMRL(embedding, targetDim) {
   return out;
 }
 
-export {
+module.exports = {
   EmbeddingRouter,
   EmbeddingCache,
   PROVIDERS,

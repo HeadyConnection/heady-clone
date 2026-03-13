@@ -3,12 +3,12 @@
 // © 2026 HeadySystems Inc. — Eric Haywood, Founder
 // ═══════════════════════════════════════════════════════════════════════════════
 
-import {
+const {
   PHI, PSI, PSI2, PSI3, FIB, CSL_THRESHOLDS,
   cosineSimilarity, normalize, sha256, phiFusionWeights,
   deterministicRandom, SEED
-} from '../shared/phi-math-v2.js';
-import { textToEmbedding, cslAND, DIM } from '../shared/csl-engine-v2.js';
+} = require('../shared/phi-math-v2.js');
+const { textToEmbedding, cslAND, DIM } = require('../shared/csl-engine-v2.js');
 
 class WisdomNode {
   constructor(id, content, embedding, category) {
@@ -197,5 +197,5 @@ class WisdomStore {
   }
 }
 
-export { WisdomStore, WisdomNode };
-export default WisdomStore;
+module.exports = { WisdomStore, WisdomNode };
+module.exports = $1;

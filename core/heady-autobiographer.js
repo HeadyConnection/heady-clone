@@ -3,10 +3,10 @@
 // © 2026 HeadySystems Inc. — Eric Haywood, Founder
 // ═══════════════════════════════════════════════════════════════════════════════
 
-import {
+const {
   PHI, PSI, PSI2, FIB, CSL_THRESHOLDS, sha256, phiFusionWeights
-} from '../shared/phi-math-v2.js';
-import { textToEmbedding, cslAND, DIM } from '../shared/csl-engine-v2.js';
+} = require('../shared/phi-math-v2.js');
+const { textToEmbedding, cslAND, DIM } = require('../shared/csl-engine-v2.js');
 
 const EVENT_TYPES = Object.freeze([
   'task_started', 'task_completed', 'task_failed',
@@ -156,5 +156,5 @@ class HeadyAutobiographer {
   }
 }
 
-export { HeadyAutobiographer, EVENT_TYPES };
-export default HeadyAutobiographer;
+module.exports = { HeadyAutobiographer, EVENT_TYPES };
+module.exports = $1;

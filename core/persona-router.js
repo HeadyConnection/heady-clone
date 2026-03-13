@@ -3,12 +3,12 @@
 // © 2026 HeadySystems Inc. — Eric Haywood, Founder
 // ═══════════════════════════════════════════════════════════════════════════════
 
-import {
+const {
   PHI, PSI, PSI2, PSI3, FIB, CSL_THRESHOLDS,
   cosineSimilarity, normalize, sigmoid, cslGate,
   deterministicRandom, SEED
-} from '../shared/phi-math-v2.js';
-import { textToEmbedding, DIM, MoECSLRouter } from '../shared/csl-engine-v2.js';
+} = require('../shared/phi-math-v2.js');
+const { textToEmbedding, DIM, MoECSLRouter } = require('../shared/csl-engine-v2.js');
 
 const SWARM_PERSONAS = Object.freeze([
   { id: 'heady-soul',      domain: 'awareness',     ring: 'central', layer: 'strategic',   fibIdx: 0, cslThreshold: CSL_THRESHOLDS.CRITICAL },
@@ -134,5 +134,5 @@ class PersonaRouter {
   getAdaptiveThresholds() { return Object.fromEntries(this.#adaptiveThresholds); }
 }
 
-export { PersonaRouter, SWARM_PERSONAS };
-export default PersonaRouter;
+module.exports = { PersonaRouter, SWARM_PERSONAS };
+module.exports = $1;

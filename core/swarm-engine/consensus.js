@@ -11,14 +11,14 @@
  * @module core/swarm-engine/consensus
  */
 
-import { EventEmitter } from 'events';
-import { randomUUID } from 'crypto';
-import {
+const { EventEmitter } = require('events');
+const { randomUUID } = require('crypto');
+const {
   PHI, PSI, fib,
   CSL_THRESHOLDS,
   phiFusionWeights,
-} from '@heady/phi-math-foundation';
-import { createLogger } from '@heady/structured-logger';
+} = require('@heady/phi-math-foundation');
+const { createLogger } = require('@heady/structured-logger');
 
 const logger = createLogger('swarm-consensus');
 
@@ -280,7 +280,7 @@ class SwarmConsensus extends EventEmitter {
   }
 }
 
-export {
+module.exports = {
   SwarmConsensus,
   QUORUM,
   ACCEPTANCE_THRESHOLD,

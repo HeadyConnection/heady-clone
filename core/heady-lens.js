@@ -3,12 +3,12 @@
 // © 2026 HeadySystems Inc. — Eric Haywood, Founder
 // ═══════════════════════════════════════════════════════════════════════════════
 
-import {
+const {
   PHI, PSI, PSI2, PSI3, FIB, CSL_THRESHOLDS,
   cosineSimilarity, phiFusionWeights, cslGate, sha256,
   PRESSURE_LEVELS, ALERT_THRESHOLDS
-} from '../shared/phi-math-v2.js';
-import { systemCoherence, detectDrift, getAllNodes } from '../shared/sacred-geometry-v2.js';
+} = require('../shared/phi-math-v2.js');
+const { systemCoherence, detectDrift, getAllNodes } = require('../shared/sacred-geometry-v2.js');
 
 class HeadyLens {
   #metrics;
@@ -211,5 +211,5 @@ class HeadyLens {
   }
 }
 
-export { HeadyLens };
-export default HeadyLens;
+module.exports = { HeadyLens };
+module.exports = $1;

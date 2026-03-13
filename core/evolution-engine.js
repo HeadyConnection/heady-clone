@@ -3,12 +3,12 @@
 // © 2026 HeadySystems Inc. — Eric Haywood, Founder
 // ═══════════════════════════════════════════════════════════════════════════════
 
-import {
+const {
   PHI, PSI, PSI2, PSI3, FIB, CSL_THRESHOLDS,
   cosineSimilarity, normalize, sha256, phiBackoff,
   cslGate, deterministicRandom, SEED
-} from '../shared/phi-math-v2.js';
-import { cslAND, cslOR, cslNOT, textToEmbedding, DIM } from '../shared/csl-engine-v2.js';
+} = require('../shared/phi-math-v2.js');
+const { cslAND, cslOR, cslNOT, textToEmbedding, DIM } = require('../shared/csl-engine-v2.js');
 
 class EvolutionEngine {
   #mutations;
@@ -181,5 +181,5 @@ class EvolutionEngine {
   }
 }
 
-export { EvolutionEngine };
-export default EvolutionEngine;
+module.exports = { EvolutionEngine };
+module.exports = $1;

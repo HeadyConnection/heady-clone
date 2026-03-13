@@ -14,14 +14,14 @@
  * @module core/swarm-engine/backpressure
  */
 
-import { EventEmitter } from 'events';
-import {
+const { EventEmitter } = require('events');
+const {
   PHI, PSI, fib,
   PRESSURE_LEVELS,
   classifyPressure,
   phiFusionWeights,
-} from '@heady/phi-math-foundation';
-import { createLogger } from '@heady/structured-logger';
+} = require('@heady/phi-math-foundation');
+const { createLogger } = require('@heady/structured-logger');
 
 const logger = createLogger('backpressure');
 
@@ -243,4 +243,4 @@ class BackpressureController extends EventEmitter {
   }
 }
 
-export { BackpressureController, THROTTLE_RATES };
+module.exports = { BackpressureController, THROTTLE_RATES };

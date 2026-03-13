@@ -9,15 +9,15 @@
  * @module core/swarm-engine/task-router
  */
 
-import { EventEmitter } from 'events';
-import {
+const { EventEmitter } = require('events');
+const {
   PHI, PSI, fib,
   CSL_THRESHOLDS,
   cslGate,
   phiFusionWeights,
-} from '@heady/phi-math-foundation';
-import { createLogger } from '@heady/structured-logger';
-import { cosine } from './bee-lifecycle.js';
+} = require('@heady/phi-math-foundation');
+const { createLogger } = require('@heady/structured-logger');
+const { cosine } = require('./bee-lifecycle.js');
 
 const logger = createLogger('task-router');
 
@@ -299,4 +299,4 @@ class TaskRouter extends EventEmitter {
   }
 }
 
-export { TaskRouter };
+module.exports = { TaskRouter };

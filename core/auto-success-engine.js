@@ -4,12 +4,12 @@
 // REPLACES 100% STUB — Complete implementation
 // ═══════════════════════════════════════════════════════════════════════════════
 
-import {
+const {
   PHI, PSI, PSI2, PSI3, FIB, CSL_THRESHOLDS,
   cosineSimilarity, normalize, sha256, cslGate, phiBackoff,
   phiFusionWeights, deterministicRandom, SEED
-} from '../shared/phi-math-v2.js';
-import { textToEmbedding, cslCONSENSUS, DIM } from '../shared/csl-engine-v2.js';
+} = require('../shared/phi-math-v2.js');
+const { textToEmbedding, cslCONSENSUS, DIM } = require('../shared/csl-engine-v2.js');
 
 const PIPELINE_STAGES = Object.freeze([
   'battle', 'coder', 'analyze', 'risks', 'patterns',
@@ -200,5 +200,5 @@ class AutoSuccessEngine {
   }
 }
 
-export { AutoSuccessEngine, PIPELINE_STAGES, STAGE_THRESHOLDS };
-export default AutoSuccessEngine;
+module.exports = { AutoSuccessEngine, PIPELINE_STAGES, STAGE_THRESHOLDS };
+module.exports = $1;

@@ -9,13 +9,13 @@
  * @module core/swarm-engine/work-stealer
  */
 
-import { EventEmitter } from 'events';
-import {
+const { EventEmitter } = require('events');
+const {
   PHI, PSI, fib,
   CSL_THRESHOLDS,
-} from '@heady/phi-math-foundation';
-import { createLogger } from '@heady/structured-logger';
-import { cosine } from './bee-lifecycle.js';
+} = require('@heady/phi-math-foundation');
+const { createLogger } = require('@heady/structured-logger');
+const { cosine } = require('./bee-lifecycle.js');
 
 const logger = createLogger('work-stealer');
 
@@ -290,4 +290,4 @@ class WorkStealer extends EventEmitter {
   }
 }
 
-export { WorkStealer, STEAL_BATCH_SIZE, STEAL_MIN_SIMILARITY };
+module.exports = { WorkStealer, STEAL_BATCH_SIZE, STEAL_MIN_SIMILARITY };

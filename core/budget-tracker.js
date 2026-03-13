@@ -3,10 +3,10 @@
 // © 2026 HeadySystems Inc. — Eric Haywood, Founder
 // ═══════════════════════════════════════════════════════════════════════════════
 
-import {
+const {
   PHI, PSI, PSI2, PSI3, FIB, CSL_THRESHOLDS,
   cslGate, phiFusionWeights, sha256, SEED
-} from '../shared/phi-math-v2.js';
+} = require('../shared/phi-math-v2.js');
 
 const BUDGET_TIERS = Object.freeze([
   { name: 'micro',     dailyCap: FIB[5],   monthlyCap: FIB[5] * FIB[8] },
@@ -186,5 +186,5 @@ class BudgetTracker {
   }
 }
 
-export { BudgetTracker, BUDGET_TIERS, PROVIDER_COSTS, DOWNGRADE_CHAIN };
-export default BudgetTracker;
+module.exports = { BudgetTracker, BUDGET_TIERS, PROVIDER_COSTS, DOWNGRADE_CHAIN };
+module.exports = $1;

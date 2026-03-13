@@ -14,17 +14,17 @@
  * @module core/liquid-nodes/colab-runtime
  */
 
-import { EventEmitter } from 'events';
-import { randomUUID } from 'crypto';
-import {
+const { EventEmitter } = require('events');
+const { randomUUID } = require('crypto');
+const {
   PHI, PSI, fib,
   CSL_THRESHOLDS,
   phiBackoff,
   phiFusionWeights,
   classifyPressure,
   PRESSURE_LEVELS,
-} from '@heady/phi-math-foundation';
-import { createLogger } from '@heady/structured-logger';
+} = require('@heady/phi-math-foundation');
+const { createLogger } = require('@heady/structured-logger');
 
 const logger = createLogger('colab-runtime');
 
@@ -602,7 +602,7 @@ class ColabRuntimeManager extends EventEmitter {
   }
 }
 
-export {
+module.exports = {
   ColabRuntimeManager,
   ColabRuntime,
   RUNTIME_STATE,

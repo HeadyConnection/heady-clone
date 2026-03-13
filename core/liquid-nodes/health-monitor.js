@@ -8,16 +8,16 @@
  * @module core/liquid-nodes/health-monitor
  */
 
-import { EventEmitter } from 'events';
-import {
+const { EventEmitter } = require('events');
+const {
   PHI, PSI, fib,
   CSL_THRESHOLDS,
   phiBackoff,
   classifyPressure,
   phiFusionWeights,
-} from '@heady/phi-math-foundation';
-import { createLogger } from '@heady/structured-logger';
-import { NODE_STATUS, PLATFORM } from './node-registry.js';
+} = require('@heady/phi-math-foundation');
+const { createLogger } = require('@heady/structured-logger');
+const { NODE_STATUS, PLATFORM } = require('./node-registry.js');
 
 const logger = createLogger('health-monitor');
 
@@ -428,7 +428,7 @@ async function defaultFetchHealth(endpoint) {
   return { status: 'healthy', timestamp: Date.now() };
 }
 
-export {
+module.exports = {
   HealthMonitor,
   CircuitBreaker,
   CB_STATE,

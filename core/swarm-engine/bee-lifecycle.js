@@ -9,16 +9,16 @@
  * @module core/swarm-engine/bee-lifecycle
  */
 
-import { EventEmitter } from 'events';
-import { randomUUID } from 'crypto';
-import {
+const { EventEmitter } = require('events');
+const { randomUUID } = require('crypto');
+const {
   PHI, PSI, fib,
   CSL_THRESHOLDS,
   EVICTION_WEIGHTS,
   phiBackoff,
   cslGate,
-} from '@heady/phi-math-foundation';
-import { createLogger } from '@heady/structured-logger';
+} = require('@heady/phi-math-foundation');
+const { createLogger } = require('@heady/structured-logger');
 
 const logger = createLogger('bee-lifecycle');
 
@@ -391,7 +391,7 @@ function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
 }
 
-export {
+module.exports = {
   HeadyBee,
   BEE_STATE,
   MAX_QUEUE_DEPTH,

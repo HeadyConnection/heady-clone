@@ -10,14 +10,14 @@
  * @module core/liquid-nodes/node-registry
  */
 
-import { EventEmitter } from 'events';
-import { randomUUID } from 'crypto';
-import {
+const { EventEmitter } = require('events');
+const { randomUUID } = require('crypto');
+const {
   PHI, PSI, fib,
   CSL_THRESHOLDS,
   classifyPressure,
-} from '@heady/phi-math-foundation';
-import { createLogger } from '@heady/structured-logger';
+} = require('@heady/phi-math-foundation');
+const { createLogger } = require('@heady/structured-logger');
 
 const logger = createLogger('liquid-node-registry');
 
@@ -418,7 +418,7 @@ class LiquidNodeRegistry extends EventEmitter {
   }
 }
 
-export {
+module.exports = {
   LiquidNodeRegistry,
   NODE_STATUS,
   PLATFORM,

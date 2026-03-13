@@ -9,8 +9,8 @@
  * @module core/liquid-nodes/vector-router
  */
 
-import { EventEmitter } from 'events';
-import {
+const { EventEmitter } = require('events');
+const {
   PHI, PSI, fib,
   CSL_THRESHOLDS,
   cslGate,
@@ -18,8 +18,8 @@ import {
   phiBackoff,
   phiFusionWeights,
   phiResourceWeights,
-} from '@heady/phi-math-foundation';
-import { createLogger } from '@heady/structured-logger';
+} = require('@heady/phi-math-foundation');
+const { createLogger } = require('@heady/structured-logger');
 
 const logger = createLogger('vector-router');
 
@@ -363,7 +363,7 @@ class VectorRouter extends EventEmitter {
   }
 }
 
-export {
+module.exports = {
   VectorRouter,
   computeDistance,
   cosineSimilarity3D,
