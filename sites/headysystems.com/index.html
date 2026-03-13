@@ -1,1175 +1,456 @@
 <!DOCTYPE html>
 <!--
 ╔══════════════════════════════════════════════════════════════════╗
-║                                                                  ║
-║   ██╗  ██╗███████╗ █████╗ ██████╗ ██╗   ██╗                    ║
-║   ██║  ██║██╔════╝██╔══██╗██╔══██╗╚██╗ ██╔╝                    ║
-║   ███████║█████╗  ███████║██║  ██║ ╚████╔╝                     ║
-║   ██╔══██║██╔══╝  ██╔══██║██║  ██║  ╚██╔╝                      ║
-║   ██║  ██║███████╗██║  ██║██████╔╝   ██║                       ║
-║   ╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝╚═════╝    ╚═╝                       ║
-║                                                                  ║
-║   ✦ Sacred Geometry v4.0 — φ (1.618) Governs All ✦             ║
-║                                                                  ║
-║   ◈ Built with Love by Heady™ — HeadySystems Inc.              ║
-║   ◈ Founder: Eric Haywood — 51 Provisional Patents              ║
-║   ◈ © 2026 HeadySystems Inc. All Rights Reserved                ║
-║                                                                  ║
-║         ∞ · φ · ψ · √5 · Fibonacci · Golden Ratio · ∞          ║
-║                                                                  ║
+║   HEADY™ — Sacred Geometry v4.0 · φ (1.618) Governs All        ║
+║   © 2026 HeadySystems Inc. — Eric Haywood, Founder               ║
+║   Built with Love · 51 Provisional Patents · All Rights Reserved ║
 ╚══════════════════════════════════════════════════════════════════╝
 -->
-
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HeadySystems - The Architecture of Intelligence | Enterprise Infrastructure Platform</title>
-    <meta name="description" content="Self-healing infrastructure. Zero-trust mesh networking. Distributed AI orchestration. The backbone for systems that think.">
-    <meta name="theme-color" content="#0A0E1A">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        :root {
-            --dark-bg: #0A0E1A;
-            --darker-bg: #050609;
-            --electric-blue: #2563EB;
-            --cyan-accent: #06B6D4;
-            --neon-green: #22C55E;
-            --gray-light: #E0E7FF;
-            --gray-dark: #1E293B;
-            --gray-medium: #475569;
-            --shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
-            --glow: 0 0 20px rgba(37, 99, 235, 0.3);
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            background-color: var(--dark-bg);
-            color: #E2E8F0;
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-
-        /* Typography */
-        h1, h2, h3, h4, h5, h6 {
-            font-weight: 700;
-            letter-spacing: -0.02em;
-        }
-
-        p {
-            color: #CBD5E1;
-        }
-
-        a {
-            color: var(--electric-blue);
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-
-        a:hover {
-            color: var(--cyan-accent);
-        }
-
-        /* Navigation */
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(10, 14, 26, 0.95);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(37, 99, 235, 0.1);
-            z-index: 1000;
-            padding: 1rem 0;
-        }
-
-        nav .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 800;
-            background: linear-gradient(135deg, var(--electric-blue), var(--cyan-accent));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        nav .nav-links {
-            display: flex;
-            gap: 2rem;
-            align-items: center;
-            flex-wrap: wrap;
-        }
-
-        nav .nav-links a {
-            font-size: 0.9rem;
-            color: #E2E8F0;
-            transition: color 0.3s ease;
-        }
-
-        nav .nav-links a:hover {
-            color: var(--cyan-accent);
-        }
-
-        nav .brand-switcher {
-            display: flex;
-            gap: 1rem;
-            font-size: 0.85rem;
-            border-left: 1px solid rgba(37, 99, 235, 0.2);
-            padding-left: 1rem;
-        }
-
-        nav .brand-switcher a {
-            color: var(--gray-medium);
-            transition: all 0.3s ease;
-        }
-
-        nav .brand-switcher a:hover {
-            color: var(--cyan-accent);
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-
-        /* Hero Section */
-        .hero {
-            margin-top: 60px;
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            overflow: hidden;
-            padding: 4rem 2rem;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background:
-                radial-gradient(circle at 20% 50%, rgba(37, 99, 235, 0.15) 0%, transparent 50%),
-                radial-gradient(circle at 80% 80%, rgba(6, 182, 212, 0.1) 0%, transparent 50%),
-                linear-gradient(135deg, transparent 0%, rgba(10, 14, 26, 0.5) 100%);
-            pointer-events: none;
-            z-index: 1;
-        }
-
-        .hero::after {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background-image:
-                linear-gradient(0deg, transparent 24%, rgba(37, 99, 235, 0.05) 25%, rgba(37, 99, 235, 0.05) 26%, transparent 27%, transparent 74%, rgba(37, 99, 235, 0.05) 75%, rgba(37, 99, 235, 0.05) 76%, transparent 77%, transparent),
-                linear-gradient(90deg, transparent 24%, rgba(37, 99, 235, 0.05) 25%, rgba(37, 99, 235, 0.05) 26%, transparent 27%, transparent 74%, rgba(37, 99, 235, 0.05) 75%, rgba(37, 99, 235, 0.05) 76%, transparent 77%, transparent);
-            background-size: 80px 80px;
-            pointer-events: none;
-            z-index: 1;
-            animation: grid-float 20s linear infinite;
-        }
-
-        @keyframes grid-float {
-            0% { transform: translate(0, 0); }
-            100% { transform: translate(80px, 80px); }
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            text-align: center;
-            max-width: 900px;
-        }
-
-        .hero-badge {
-            display: inline-block;
-            padding: 0.5rem 1.25rem;
-            background: rgba(37, 99, 235, 0.1);
-            border: 1px solid rgba(37, 99, 235, 0.3);
-            border-radius: 9999px;
-            font-size: 0.85rem;
-            color: var(--cyan-accent);
-            margin-bottom: 2rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
-
-        .hero h1 {
-            font-size: clamp(2.5rem, 5vw, 4.5rem);
-            margin-bottom: 1.5rem;
-            line-height: 1.2;
-            background: linear-gradient(135deg, var(--electric-blue), var(--cyan-accent));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .hero-subtitle {
-            font-size: 1.25rem;
-            color: #CBD5E1;
-            margin-bottom: 2.5rem;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-            line-height: 1.8;
-        }
-
-        .cta-group {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin-bottom: 3rem;
-        }
-
-        .btn {
-            padding: 0.875rem 2rem;
-            border-radius: 0.5rem;
-            font-weight: 600;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            border: none;
-            text-decoration: none;
-            display: inline-block;
-            white-space: nowrap;
-        }
-
-        .btn-primary {
-            background: linear-gradient(135deg, var(--electric-blue), #1d4ed8);
-            color: white;
-            box-shadow: var(--glow);
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 0 30px rgba(37, 99, 235, 0.5);
-        }
-
-        .btn-outline {
-            background: transparent;
-            color: var(--cyan-accent);
-            border: 2px solid var(--cyan-accent);
-        }
-
-        .btn-outline:hover {
-            background: rgba(6, 182, 212, 0.1);
-            border-color: var(--cyan-accent);
-            transform: translateY(-2px);
-        }
-
-        /* Metrics Bar */
-        .metrics-bar {
-            background: rgba(30, 41, 59, 0.5);
-            border-top: 1px solid rgba(37, 99, 235, 0.1);
-            border-bottom: 1px solid rgba(37, 99, 235, 0.1);
-            padding: 2rem;
-            margin: 4rem 0;
-        }
-
-        .metrics-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 2rem;
-            text-align: center;
-        }
-
-        .metric {
-            border-right: 1px solid rgba(37, 99, 235, 0.1);
-        }
-
-        .metric:last-child {
-            border-right: none;
-        }
-
-        .metric-value {
-            font-size: 1.5rem;
-            font-weight: 800;
-            color: var(--neon-green);
-            margin-bottom: 0.5rem;
-            font-family: 'JetBrains Mono', monospace;
-        }
-
-        .metric-label {
-            font-size: 0.85rem;
-            color: var(--gray-medium);
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
-
-        /* Architecture Section */
-        .architecture {
-            padding: 6rem 0;
-            position: relative;
-        }
-
-        .architecture h2 {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            color: #E2E8F0;
-        }
-
-        .architecture-subtitle {
-            text-align: center;
-            color: var(--gray-medium);
-            margin-bottom: 4rem;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .mesh-layers {
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-            margin: 4rem 0;
-        }
-
-        .layer {
-            background: linear-gradient(90deg, rgba(37, 99, 235, 0.1) 0%, transparent 100%);
-            border: 1px solid rgba(37, 99, 235, 0.2);
-            border-radius: 0.5rem;
-            padding: 1.5rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .layer::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 0;
-            bottom: 0;
-            width: 4px;
-            background: linear-gradient(180deg, var(--electric-blue), var(--cyan-accent));
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .layer:hover {
-            background: linear-gradient(90deg, rgba(37, 99, 235, 0.2) 0%, transparent 100%);
-            border-color: rgba(37, 99, 235, 0.4);
-            transform: translateX(10px);
-        }
-
-        .layer:hover::before {
-            opacity: 1;
-        }
-
-        .layer-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 1rem;
-        }
-
-        .layer-title {
-            font-size: 1.1rem;
-            font-weight: 700;
-            color: var(--cyan-accent);
-            font-family: 'JetBrains Mono', monospace;
-        }
-
-        .layer-number {
-            background: rgba(37, 99, 235, 0.2);
-            color: var(--electric-blue);
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 700;
-        }
-
-        .layer-description {
-            font-size: 0.95rem;
-            color: #CBD5E1;
-            line-height: 1.6;
-        }
-
-        .layer-tech {
-            margin-top: 1rem;
-            display: flex;
-            gap: 0.5rem;
-            flex-wrap: wrap;
-        }
-
-        .tech-badge {
-            display: inline-block;
-            background: rgba(6, 182, 212, 0.1);
-            border: 1px solid rgba(6, 182, 212, 0.3);
-            color: var(--cyan-accent);
-            padding: 0.25rem 0.75rem;
-            border-radius: 9999px;
-            font-size: 0.8rem;
-        }
-
-        /* Capabilities Section */
-        .capabilities {
-            padding: 6rem 0;
-            background: rgba(30, 41, 59, 0.3);
-        }
-
-        .capabilities h2 {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 4rem;
-            color: #E2E8F0;
-        }
-
-        .capabilities-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-        }
-
-        .capability-card {
-            background: linear-gradient(135deg, rgba(37, 99, 235, 0.1) 0%, rgba(6, 182, 212, 0.05) 100%);
-            border: 1px solid rgba(37, 99, 235, 0.2);
-            border-radius: 0.75rem;
-            padding: 2rem;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .capability-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 3px;
-            background: linear-gradient(90deg, var(--electric-blue), var(--cyan-accent));
-            transform: scaleX(0);
-            transform-origin: left;
-            transition: transform 0.3s ease;
-        }
-
-        .capability-card:hover {
-            border-color: rgba(37, 99, 235, 0.4);
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(37, 99, 235, 0.2);
-        }
-
-        .capability-card:hover::before {
-            transform: scaleX(1);
-        }
-
-        .capability-icon {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .capability-card h3 {
-            font-size: 1.3rem;
-            margin-bottom: 1rem;
-            color: var(--electric-blue);
-        }
-
-        .capability-card p {
-            font-size: 0.95rem;
-            line-height: 1.7;
-        }
-
-        /* Developer Experience Section */
-        .developer-experience {
-            padding: 6rem 0;
-        }
-
-        .developer-experience h2 {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 4rem;
-            color: #E2E8F0;
-        }
-
-        .terminal {
-            background: #000000;
-            border: 1px solid rgba(34, 197, 94, 0.3);
-            border-radius: 0.5rem;
-            padding: 2rem;
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 1rem;
-            line-height: 1.8;
-            overflow-x: auto;
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5);
-            max-width: 600px;
-            margin: 0 auto 4rem;
-        }
-
-        .terminal-header {
-            display: flex;
-            gap: 0.5rem;
-            margin-bottom: 1rem;
-            padding-bottom: 1rem;
-            border-bottom: 1px solid rgba(34, 197, 94, 0.2);
-        }
-
-        .terminal-dot {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background: rgba(34, 197, 94, 0.3);
-        }
-
-        .terminal-content {
-            color: var(--neon-green);
-        }
-
-        .terminal-command {
-            display: block;
-            margin-bottom: 1.5rem;
-        }
-
-        .terminal-prompt {
-            color: var(--neon-green);
-            user-select: none;
-        }
-
-        .terminal-text {
-            color: var(--neon-green);
-        }
-
-        /* Footer */
-        footer {
-            background: rgba(5, 6, 9, 0.8);
-            border-top: 1px solid rgba(37, 99, 235, 0.1);
-            padding: 4rem 0 2rem;
-            margin-top: 6rem;
-        }
-
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 3rem;
-            margin-bottom: 3rem;
-        }
-
-        .footer-section h4 {
-            color: var(--electric-blue);
-            margin-bottom: 1rem;
-            font-size: 0.95rem;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
-
-        .footer-section ul {
-            list-style: none;
-        }
-
-        .footer-section li {
-            margin-bottom: 0.75rem;
-        }
-
-        .footer-section a {
-            color: var(--gray-medium);
-            font-size: 0.9rem;
-            transition: color 0.3s ease;
-        }
-
-        .footer-section a:hover {
-            color: var(--cyan-accent);
-        }
-
-        .footer-bottom {
-            border-top: 1px solid rgba(37, 99, 235, 0.1);
-            padding-top: 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 2rem;
-            font-size: 0.85rem;
-            color: var(--gray-medium);
-        }
-
-        .footer-bottom .social-links {
-            display: flex;
-            gap: 1.5rem;
-        }
-
-        /* HeadyBuddy Widget */
-        .headybuddy-widget {
-            position: fixed;
-            bottom: 2rem;
-            right: 2rem;
-            z-index: 999;
-        }
-
-        .buddy-toggle {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, var(--electric-blue), var(--cyan-accent));
-            border: none;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            box-shadow: var(--glow);
-            transition: all 0.3s ease;
-        }
-
-        .buddy-toggle:hover {
-            transform: scale(1.1);
-            box-shadow: 0 0 30px rgba(37, 99, 235, 0.5);
-        }
-
-        .buddy-popup {
-            position: absolute;
-            bottom: 80px;
-            right: 0;
-            background: linear-gradient(135deg, rgba(37, 99, 235, 0.1), rgba(6, 182, 212, 0.05));
-            border: 1px solid rgba(37, 99, 235, 0.3);
-            border-radius: 0.75rem;
-            padding: 1.5rem;
-            width: 280px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
-            display: none;
-            z-index: 1000;
-        }
-
-        .buddy-popup.active {
-            display: block;
-            animation: slideUp 0.3s ease;
-        }
-
-        @keyframes slideUp {
-            from {
-                opacity: 0;
-                transform: translateY(10px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .buddy-popup h4 {
-            color: var(--cyan-accent);
-            margin-bottom: 1rem;
-            font-size: 1rem;
-        }
-
-        .buddy-popup p {
-            font-size: 0.85rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .buddy-actions {
-            display: flex;
-            flex-direction: column;
-            gap: 0.75rem;
-        }
-
-        .buddy-action {
-            background: rgba(37, 99, 235, 0.2);
-            border: 1px solid rgba(37, 99, 235, 0.3);
-            color: var(--cyan-accent);
-            padding: 0.5rem 1rem;
-            border-radius: 0.375rem;
-            cursor: pointer;
-            font-size: 0.85rem;
-            transition: all 0.3s ease;
-            border: none;
-        }
-
-        .buddy-action:hover {
-            background: rgba(37, 99, 235, 0.3);
-            color: var(--electric-blue);
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            nav .nav-links {
-                display: none;
-            }
-
-            nav .brand-switcher {
-                display: none;
-            }
-
-            .hero {
-                min-height: auto;
-                padding: 3rem 1rem;
-            }
-
-            .hero h1 {
-                font-size: 2rem;
-            }
-
-            .hero-subtitle {
-                font-size: 1rem;
-            }
-
-            .metrics-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 1rem;
-            }
-
-            .metric {
-                border-right: none;
-            }
-
-            .architecture h2,
-            .capabilities h2,
-            .developer-experience h2 {
-                font-size: 1.75rem;
-            }
-
-            .capabilities-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .footer-bottom {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-
-            .headybuddy-widget {
-                bottom: 1rem;
-                right: 1rem;
-            }
-
-            .buddy-popup {
-                width: 250px;
-            }
-        }
-
-        /* Loading animation */
-        @keyframes pulse {
-            0%, 100% {
-                opacity: 1;
-            }
-            50% {
-                opacity: 0.5;
-            }
-        }
-
-        .pulse {
-            animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HeadySystems — The Intelligent Infrastructure Company</title>
+  <meta name="description" content="The Intelligent Infrastructure Company. Sacred Geometry v4.0 · Liquid Node Architecture · φ-Driven Intelligence">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #06040d;
+      --wire: 160, 140, 255;
+      --accent-rgb: 255, 215, 0;
+      --accent: rgb(255, 215, 0);
+      --cosmic: 180, 160, 255;
+      --text: rgba(255,255,255,0.92);
+      --text-dim: rgba(255,255,255,0.55);
+      --glass-bg: rgba(255,255,255,0.04);
+      --glass-border: rgba(255,255,255,0.08);
+      --glass-hover: rgba(255,255,255,0.07);
+      --phi: 1.618;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      overflow-x: hidden;
+      min-height: 100vh;
+    }
+
+    /* ── Sacred Geometry Canvas ── */
+    #sacred-bg {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    /* ── Navigation ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 0.75rem 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+      background: rgba(8, 6, 15, 0.7);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--glass-border);
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+    nav a {
+      color: var(--text-dim);
+      text-decoration: none;
+      font-size: 0.78rem;
+      font-weight: 500;
+      padding: 0.4rem 0.7rem;
+      border-radius: 6px;
+      transition: all 0.3s;
+      white-space: nowrap;
+      letter-spacing: 0.02em;
+    }
+    nav a:hover { color: var(--text); background: var(--glass-bg); }
+    nav a.nav-active {
+      color: var(--accent);
+      background: rgba(var(--accent-rgb), 0.1);
+      border: 1px solid rgba(var(--accent-rgb), 0.2);
+    }
+
+    /* ── Content ── */
+    .content {
+      position: relative;
+      z-index: 1;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 6rem 1.5rem 3rem;
+    }
+
+    /* ── Hero ── */
+    .hero {
+      text-align: center;
+      padding: 4rem 0 3rem;
+    }
+    .hero-badge {
+      display: inline-block;
+      padding: 0.3rem 1rem;
+      border: 1px solid rgba(var(--accent-rgb), 0.3);
+      border-radius: 20px;
+      font-size: 0.7rem;
+      font-weight: 500;
+      color: var(--accent);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+      background: rgba(var(--accent-rgb), 0.05);
+    }
+    .hero h1 {
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      background: linear-gradient(135deg, var(--text) 0%, var(--accent) 50%, var(--text) 100%);
+      background-size: 200% 200%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: shimmer 6s ease infinite;
+    }
+    @keyframes shimmer {
+      0%, 100% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+    }
+    .hero .tagline {
+      font-size: 1.3rem;
+      color: var(--text-dim);
+      margin-top: 1rem;
+      font-weight: 300;
+    }
+    .hero .subtitle {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      color: rgba(var(--accent-rgb), 0.6);
+      margin-top: 0.75rem;
+      letter-spacing: 0.05em;
+    }
+
+    /* ── Data Viz Bar ── */
+    .viz-bar {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin: 2rem 0;
+      flex-wrap: wrap;
+    }
+    .viz-bar canvas {
+      border-radius: 12px;
+      background: rgba(0,0,0,0.3);
+      border: 1px solid var(--glass-border);
+    }
+
+    /* ── Stats ── */
+    .stats {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin: 2rem 0 3rem;
+      flex-wrap: wrap;
+    }
+    .stat {
+      text-align: center;
+      padding: 1rem 1.5rem;
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      border-radius: 12px;
+      backdrop-filter: blur(10px);
+      min-width: 120px;
+    }
+    .stat-value {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--accent);
+    }
+    .stat-label {
+      font-size: 0.72rem;
+      color: var(--text-dim);
+      margin-top: 0.3rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    /* ── Cards ── */
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.2rem;
+      margin: 2rem 0;
+    }
+    .card {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--glass-border);
+      border-radius: 16px;
+      padding: 1.8rem;
+      backdrop-filter: blur(12px);
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: hidden;
+      animation: fadeUp 0.8s ease forwards;
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    @keyframes fadeUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .card:hover {
+      background: var(--glass-hover);
+      border-color: rgba(var(--accent-rgb), 0.2);
+      transform: translateY(-4px);
+      box-shadow: 0 20px 60px rgba(var(--accent-rgb), 0.08);
+    }
+    .card-icon {
+      color: var(--accent);
+      margin-bottom: 1rem;
+      opacity: 0.8;
+    }
+    .card h3 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 0.6rem;
+      color: var(--text);
+    }
+    .card p {
+      font-size: 0.85rem;
+      line-height: 1.6;
+      color: var(--text-dim);
+    }
+    .card-pulse {
+      position: absolute;
+      top: -50%; left: -50%;
+      width: 200%; height: 200%;
+      background: radial-gradient(circle at center, rgba(var(--accent-rgb), 0.03), transparent 50%);
+      opacity: 0;
+      transition: opacity 0.5s;
+      pointer-events: none;
+    }
+    .card:hover .card-pulse { opacity: 1; }
+
+    /* ── Footer ── */
+    footer {
+      text-align: center;
+      padding: 2rem 1.5rem;
+      color: var(--text-dim);
+      font-size: 0.72rem;
+      border-top: 1px solid var(--glass-border);
+      margin-top: 3rem;
+      background: rgba(0,0,0,0.2);
+      backdrop-filter: blur(10px);
+      position: relative;
+      z-index: 1;
+    }
+    footer a { color: var(--accent); text-decoration: none; }
+    .footer-phi {
+      font-family: 'JetBrains Mono', monospace;
+      color: rgba(var(--accent-rgb), 0.4);
+      font-size: 0.65rem;
+      margin-top: 0.5rem;
+    }
+
+    /* ── Waveform Viz ── */
+    .wave-container {
+      width: 100%;
+      height: 60px;
+      margin: 1rem 0;
+      border-radius: 12px;
+      overflow: hidden;
+      background: rgba(0,0,0,0.2);
+      border: 1px solid var(--glass-border);
+    }
+    .wave-container canvas { width: 100%; height: 100%; }
+
+    /* ── Live Engine Status (status site) ── */
+    .engine-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+      gap: 0.6rem;
+      margin: 1.5rem 0;
+    }
+    .engine-tile {
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      border-radius: 10px;
+      padding: 0.8rem;
+      text-align: center;
+      font-size: 0.7rem;
+      transition: all 0.3s;
+    }
+    .engine-tile.online {
+      border-color: rgba(0, 255, 120, 0.3);
+    }
+    .engine-tile .dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      display: inline-block;
+      margin-right: 0.3rem;
+      background: var(--accent);
+      box-shadow: 0 0 8px rgba(var(--accent-rgb), 0.5);
+      animation: pulse-dot 2s ease infinite;
+    }
+    @keyframes pulse-dot {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
+    .engine-name { font-weight: 600; color: var(--text); margin-top: 0.3rem; }
+    .engine-status { color: var(--text-dim); font-family: 'JetBrains Mono', monospace; font-size: 0.6rem; }
+
+    @media (max-width: 640px) {
+      .stats { gap: 0.8rem; }
+      .stat { min-width: 80px; padding: 0.7rem; }
+      .stat-value { font-size: 1.1rem; }
+      nav { gap: 0; }
+      nav a { font-size: 0.7rem; padding: 0.3rem 0.5rem; }
+    }
+  </style>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav>
-        <div class="container">
-            <div class="logo">HeadySystems</div>
-            <div class="nav-links">
-                <a href="#architecture">Architecture</a>
-                <a href="#capabilities">Capabilities</a>
-                <a href="#developer">Developer</a>
-                <a href="#docs">Docs</a>
-                <a href="#api">API</a>
-                <a href="#status">Status</a>
-            </div>
-            <div class="brand-switcher">
-                <span style="color: var(--gray-medium);">Heady Ecosystem:</span>
-                <a href="#">HeadyNet</a>
-                <a href="#">HeadyAI</a>
-                <a href="#">HeadyVerse</a>
-            </div>
-        </div>
-    </nav>
 
-    <!-- Hero Section -->
+  <canvas id="sacred-bg"></canvas>
+
+  <nav>
+    <a href="https://headysystems.com" class="nav-active">HeadySystems</a>
+            <a href="https://headyme.com">HeadyMe</a>
+            <a href="https://headyconnection.com">HeadyConnection</a>
+            <a href="https://heady-ai.com">Heady AI</a>
+            <a href="https://headybuddy.org">HeadyBuddy</a>
+            <a href="https://docs.headysystems.com">Docs</a>
+            <a href="https://status.headysystems.com">Status</a>
+  </nav>
+
+  <div class="content">
     <section class="hero">
-        <div class="hero-content">
-            <div class="hero-badge">HeadySystems v3.2 · Orion Patch</div>
-            <h1>The Architecture of Intelligence</h1>
-            <p class="hero-subtitle">
-                Self-healing infrastructure. Zero-trust mesh networking. Distributed AI orchestration. The backbone for systems that think.
-            </p>
-            <div class="cta-group">
-                <button class="btn btn-primary" onclick="handleGetStarted()">Get Started</button>
-                <button class="btn btn-outline" onclick="handleViewArchitecture()">View Architecture</button>
-            </div>
-        </div>
+      <div class="hero-badge">✦ Sacred Geometry v4.0</div>
+      <h1>HeadySystems</h1>
+      <p class="tagline">The Intelligent Infrastructure Company</p>
+      <p class="subtitle">Sacred Geometry v4.0 · Liquid Node Architecture · φ-Driven Intelligence</p>
     </section>
 
-    <!-- Metrics Bar -->
-    <div class="metrics-bar">
-        <div class="container">
-            <div class="metrics-grid">
-                <div class="metric">
-                    <div class="metric-value">99.97%</div>
-                    <div class="metric-label">Uptime SLA</div>
-                </div>
-                <div class="metric">
-                    <div class="metric-value">&lt;50ms</div>
-                    <div class="metric-label">P95 Latency</div>
-                </div>
-                <div class="metric">
-                    <div class="metric-value">300+</div>
-                    <div class="metric-label">Edge Locations</div>
-                </div>
-                <div class="metric">
-                    <div class="metric-value">6</div>
-                    <div class="metric-label">AI Models</div>
-                </div>
-                <div class="metric">
-                    <div class="metric-value">51</div>
-                    <div class="metric-label">Patents</div>
-                </div>
-            </div>
+    <div class="stats">
+          <div class="stat">
+            <div class="stat-value">18</div>
+            <div class="stat-label">Engines</div>
+          </div>
+          <div class="stat">
+            <div class="stat-value">4</div>
+            <div class="stat-label">Foundation Packages</div>
+          </div>
+          <div class="stat">
+            <div class="stat-value">30</div>
+            <div class="stat-label">Core Modules</div>
+          </div>
+          <div class="stat">
+            <div class="stat-value">40/40</div>
+            <div class="stat-label">Test Coverage</div>
+          </div>
+    </div>
+
+    <div class="wave-container">
+      <canvas id="waveform"></canvas>
+    </div>
+
+    <div class="cards">
+        <div class="card" style="animation-delay: 0.0s">
+          <div class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="2"/><circle cx="5" cy="19" r="2"/><circle cx="19" cy="19" r="2"/><line x1="12" y1="7" x2="5" y2="17"/><line x1="12" y1="7" x2="19" y2="17"/><line x1="5" y1="19" x2="19" y2="19"/></svg></div>
+          <h3>Liquid Node Architecture</h3>
+          <p>Intelligence flows like water through φ-weighted vector space. No fixed IPs, no static routing — just pure capability embeddings guiding every request to its optimal handler.</p>
+          <div class="card-pulse"></div>
+        </div>
+        <div class="card" style="animation-delay: 0.15s">
+          <div class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg></div>
+          <h3>HeadyMemory 3-Tier</h3>
+          <p>T0 Working Memory (21 capsules) → T1 Short-Term (144K vectors, 47h TTL) → T2 Long-Term (permanent, 30-day φ-decay). Memories flow, consolidate, and recall.</p>
+          <div class="card-pulse"></div>
+        </div>
+        <div class="card" style="animation-delay: 0.3s">
+          <div class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+          <h3>HeadyAutoContext</h3>
+          <p>5-pass enrichment pipeline: Intent → Memory → Grounding → Compression → Confidence. Every AI action is informed, validated, and quality-gated.</p>
+          <div class="card-pulse"></div>
+        </div>
+        <div class="card" style="animation-delay: 0.44999999999999996s">
+          <div class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a10 10 0 0 1 0 20"/><circle cx="12" cy="12" r="6.18"/></svg></div>
+          <h3>Sacred Geometry v4.0</h3>
+          <p>φ (1.618) governs every threshold, weight, timing parameter, and scaling decision. Zero magic numbers. Pure mathematical harmony.</p>
+          <div class="card-pulse"></div>
         </div>
     </div>
 
-    <!-- Architecture Section -->
-    <section class="architecture" id="architecture">
-        <div class="container">
-            <h2>Six-Layer Enterprise Mesh</h2>
-            <p class="architecture-subtitle">
-                Distributed, self-healing infrastructure orchestrated across the globe. Each layer is independently scalable.
-            </p>
-
-            <div class="mesh-layers">
-                <div class="layer" onclick="toggleLayerDetail(this)">
-                    <div class="layer-header">
-                        <span class="layer-number">1</span>
-                        <span class="layer-title">Edge Network</span>
-                    </div>
-                    <p class="layer-description">
-                        Global content delivery and request routing via Cloudflare Workers. Sub-millisecond latency across 300+ edge locations. DDoS protection, WAF, and request filtering at the edge.
-                    </p>
-                    <div class="layer-tech">
-                        <span class="tech-badge">Cloudflare Workers</span>
-                        <span class="tech-badge">Global CDN</span>
-                        <span class="tech-badge">DDoS Protection</span>
-                    </div>
-                </div>
-
-                <div class="layer" onclick="toggleLayerDetail(this)">
-                    <div class="layer-header">
-                        <span class="layer-number">2</span>
-                        <span class="layer-title">API Gateway</span>
-                    </div>
-                    <p class="layer-description">
-                        Intelligent request routing, authentication, rate limiting, and protocol translation. OAuth 2.0, JWT validation, and fine-grained access control. Real-time traffic analytics.
-                    </p>
-                    <div class="layer-tech">
-                        <span class="tech-badge">Kong</span>
-                        <span class="tech-badge">OAuth 2.0</span>
-                        <span class="tech-badge">Rate Limiting</span>
-                    </div>
-                </div>
-
-                <div class="layer" onclick="toggleLayerDetail(this)">
-                    <div class="layer-header">
-                        <span class="layer-number">3</span>
-                        <span class="layer-title">Service Mesh</span>
-                    </div>
-                    <p class="layer-description">
-                        Istio-powered microservice orchestration with automated load balancing, circuit breaking, and traffic management. Service-to-service encryption and mutual TLS for zero-trust security.
-                    </p>
-                    <div class="layer-tech">
-                        <span class="tech-badge">Istio</span>
-                        <span class="tech-badge">mTLS</span>
-                        <span class="tech-badge">Load Balancing</span>
-                    </div>
-                </div>
-
-                <div class="layer" onclick="toggleLayerDetail(this)">
-                    <div class="layer-header">
-                        <span class="layer-number">4</span>
-                        <span class="layer-title">AI Orchestration</span>
-                    </div>
-                    <p class="layer-description">
-                        Distributed inference pipeline with model routing, ensemble inference, and token counting. Supports 6 foundation models with dynamic scaling. Custom model deployment and fine-tuning.
-                    </p>
-                    <div class="layer-tech">
-                        <span class="tech-badge">vLLM</span>
-                        <span class="tech-badge">Ray</span>
-                        <span class="tech-badge">Model Routing</span>
-                    </div>
-                </div>
-
-                <div class="layer" onclick="toggleLayerDetail(this)">
-                    <div class="layer-header">
-                        <span class="layer-number">5</span>
-                        <span class="layer-title">Data Layer</span>
-                    </div>
-                    <p class="layer-description">
-                        PostgreSQL with WAL streaming, Redis for caching and pub/sub, Pinecone for vector embeddings. Automated replication, point-in-time recovery, and backup management.
-                    </p>
-                    <div class="layer-tech">
-                        <span class="tech-badge">PostgreSQL</span>
-                        <span class="tech-badge">Redis</span>
-                        <span class="tech-badge">Pinecone</span>
-                    </div>
-                </div>
-
-                <div class="layer" onclick="toggleLayerDetail(this)">
-                    <div class="layer-header">
-                        <span class="layer-number">6</span>
-                        <span class="layer-title">Observability</span>
-                    </div>
-                    <p class="layer-description">
-                        End-to-end distributed tracing, error tracking, and health monitoring. Sentry integration for exception handling. Custom metrics, alerts, and real-time dashboards.
-                    </p>
-                    <div class="layer-tech">
-                        <span class="tech-badge">Sentry</span>
-                        <span class="tech-badge">Prometheus</span>
-                        <span class="tech-badge">Grafana</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Capabilities Section -->
-    <section class="capabilities" id="capabilities">
-        <div class="container">
-            <h2>Enterprise Capabilities</h2>
-
-            <div class="capabilities-grid">
-                <div class="capability-card">
-                    <div class="capability-icon">⚙️</div>
-                    <h3>Ops Console</h3>
-                    <p>
-                        14 service groups, CLI-driven. Full infrastructure control from terminal to dashboard. Real-time service health, traffic patterns, and resource utilization.
-                    </p>
-                </div>
-
-                <div class="capability-card">
-                    <div class="capability-icon">🏥</div>
-                    <h3>Self-Healing</h3>
-                    <p>
-                        Attestation, quarantine, respawn. When a node fails, the mesh detects, isolates, and replaces it automatically. Zero-downtime recovery with graceful drain.
-                    </p>
-                </div>
-
-                <div class="capability-card">
-                    <div class="capability-icon">🐝</div>
-                    <h3>HeadyBee Swarms</h3>
-                    <p>
-                        Distributed task execution inspired by swarm intelligence. Tasks decompose, distribute, execute in parallel, and reconverge with aggregated results.
-                    </p>
-                </div>
-
-                <div class="capability-card">
-                    <div class="capability-icon">🔐</div>
-                    <h3>Quantum IP</h3>
-                    <p>
-                        Rotated Subsystem Surface Code encryption. Post-quantum cryptography protecting 51 provisional patents. Future-proof security for regulated industries.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Developer Experience Section -->
-    <section class="developer-experience" id="developer">
-        <div class="container">
-            <h2>Developer Experience</h2>
-
-            <div class="terminal">
-                <div class="terminal-header">
-                    <div class="terminal-dot"></div>
-                    <div class="terminal-dot"></div>
-                    <div class="terminal-dot"></div>
-                </div>
-                <div class="terminal-content">
-                    <span class="terminal-command">
-                        <span class="terminal-prompt">$ </span><span class="terminal-text">heady init my-project</span>
-                    </span>
-                    <span class="terminal-command">
-                        <span class="terminal-prompt">$ </span><span class="terminal-text">heady deploy --mesh production</span>
-                    </span>
-                    <span class="terminal-command">
-                        <span class="terminal-prompt">$ </span><span class="terminal-text">heady status --all</span>
-                    </span>
-                    <span class="terminal-command">
-                        <span class="terminal-prompt">$ </span><span class="terminal-text">heady logs --service api-gateway --tail</span>
-                    </span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h4>Product</h4>
-                    <ul>
-                        <li><a href="#features">Features</a></li>
-                        <li><a href="#pricing">Pricing</a></li>
-                        <li><a href="#roadmap">Roadmap</a></li>
-                        <li><a href="#changelog">Changelog</a></li>
-                    </ul>
-                </div>
-
-                <div class="footer-section">
-                    <h4>Documentation</h4>
-                    <ul>
-                        <li><a href="#docs">Getting Started</a></li>
-                        <li><a href="#api">API Reference</a></li>
-                        <li><a href="#cli">CLI Guide</a></li>
-                        <li><a href="#examples">Examples</a></li>
-                    </ul>
-                </div>
-
-                <div class="footer-section">
-                    <h4>Community</h4>
-                    <ul>
-                        <li><a href="#discord">Discord</a></li>
-                        <li><a href="#github">GitHub</a></li>
-                        <li><a href="#twitter">Twitter</a></li>
-                        <li><a href="#discussions">Discussions</a></li>
-                    </ul>
-                </div>
-
-                <div class="footer-section">
-                    <h4>Company</h4>
-                    <ul>
-                        <li><a href="#about">About</a></li>
-                        <li><a href="#blog">Blog</a></li>
-                        <li><a href="#careers">Careers</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="footer-bottom">
-                <div>&copy; 2026 HeadySystems. All rights reserved.</div>
-                <div class="social-links">
-                    <a href="#">Twitter</a>
-                    <a href="#">GitHub</a>
-                    <a href="#">LinkedIn</a>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-    <!-- HeadyBuddy Widget -->
-    <div class="headybuddy-widget">
-        <button class="buddy-toggle" onclick="toggleBuddy()" title="HeadyBuddy Assistant">🤖</button>
-        <div class="buddy-popup" id="buddyPopup">
-            <h4>HeadyBuddy</h4>
-            <p>Your AI-powered infrastructure assistant. Ready to help you deploy, monitor, and scale.</p>
-            <div class="buddy-actions">
-                <button class="buddy-action" onclick="buddyAction('docs')">📖 View Docs</button>
-                <button class="buddy-action" onclick="buddyAction('support')">💬 Get Support</button>
-                <button class="buddy-action" onclick="buddyAction('status')">📊 System Status</button>
-            </div>
-        </div>
+    <div class="viz-bar">
+      <canvas id="pulse-ring" width="200" height="200"></canvas>
     </div>
+  </div>
 
-    <script>
-        // Navigation smooth scroll
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
+  <footer>
+    <p>© 2026 <a href="https://headysystems.com">HeadySystems Inc.</a> — Eric Haywood, Founder — 51 Provisional Patents</p>
+    <p class="footer-phi">∞ · φ (1.618) · ψ (0.618) · √5 · Fibonacci · Golden Ratio · Sacred Geometry v4.0 · ∞</p>
+  </footer>
 
-        // Hero CTA handlers
-        function handleGetStarted() {
-            const message = 'Get Started: Initialize your first HeadySystems project. Redirecting to onboarding...';
-            alert(message);
-            console.log(message);
-        }
+  <script src="../shared/heady-sacred-engine.js"></script>
+  <script src="../shared/heady-swarm-client.js"></script>
+  <script>
+    // Initialize Sacred Geometry Background
+    const canvas = document.getElementById('sacred-bg');
+    canvas.style.width = '100%';
+    canvas.style.height = '100%';
+    const engine = new HeadySacredEngine(canvas, {
+      shape: 'metatronsCube',
+      radius: Math.min(window.innerWidth, window.innerHeight) * 0.25,
+      wireColor: '160, 140, 255',
+      accentColor: '255, 215, 0',
+      cosmicColor: '180, 160, 255',
+      bgColor: '#06040d',
+      nebulaCore: 'rgba(40, 10, 80, 0.04)',
+      nebulaMid: 'rgba(15, 5, 50, 0.02)',
+      nebula2Core: 'rgba(80, 20, 40, 0.02)',
+      wireOpacity: 0.3,
+      wireWidth: 0.5,
+      rotationSpeed: 0.0003,
+      gyroAmplitude: 0.35,
+      particleCount: 180,
+      fov: 550,
+      glowIntensity: 18,
+    });
+    engine.start();
 
-        function handleViewArchitecture() {
-            const message = 'View Architecture: Exploring the six-layer mesh architecture...';
-            document.querySelector('#architecture').scrollIntoView({ behavior: 'smooth' });
-            console.log(message);
-        }
+    // Waveform
+    const waveCanvas = document.getElementById('waveform');
+    waveCanvas.width = waveCanvas.parentElement.offsetWidth * 2;
+    waveCanvas.height = 120;
+    const waveform = new HeadyPhiWaveform(waveCanvas, {
+      color: '160, 140, 255',
+      waves: 4,
+      speed: 0.025,
+    });
+    function animateWave() {
+      waveform.draw();
+      requestAnimationFrame(animateWave);
+    }
+    animateWave();
 
-        // Layer toggle for deep-dive details
-        function toggleLayerDetail(element) {
-            element.classList.toggle('active');
-            if (element.classList.contains('active')) {
-                element.style.backgroundColor = 'rgba(37, 99, 235, 0.15)';
-            } else {
-                element.style.backgroundColor = '';
-            }
-        }
-
-        // HeadyBuddy widget
-        function toggleBuddy() {
-            const popup = document.getElementById('buddyPopup');
-            popup.classList.toggle('active');
-        }
-
-        function buddyAction(action) {
-            const actions = {
-                'docs': 'Opening HeadySystems Documentation...',
-                'support': 'Connecting to Support Team...',
-                'status': 'Checking System Status...'
-            };
-            alert(actions[action] || 'Action triggered');
-            console.log('HeadyBuddy action:', action);
-            toggleBuddy();
-        }
-
-        // Close buddy popup when clicking outside
-        document.addEventListener('click', function(e) {
-            const widget = document.querySelector('.headybuddy-widget');
-            if (!widget.contains(e.target)) {
-                document.getElementById('buddyPopup').classList.remove('active');
-            }
-        });
-
-        // Add animation on scroll
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -100px 0px'
-        };
-
-        const observer = new IntersectionObserver(function(entries) {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.capability-card, .layer').forEach(el => {
-            el.style.opacity = '0';
-            el.style.transform = 'translateY(20px)';
-            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-            observer.observe(el);
-        });
-
-        // Log initialization
-        console.log('%cHeadySystems v3.2 | Orion Patch', 'color: #2563EB; font-size: 14px; font-weight: bold;');
-        console.log('%cThe Architecture of Intelligence', 'color: #06B6D4; font-size: 12px;');
-    </script>
+    // Pulse Ring
+    const pulseCanvas = document.getElementById('pulse-ring');
+    const pulseRing = new HeadyDataPulseRing(pulseCanvas, {
+      color: '255, 215, 0',
+      segments: 21,
+    });
+    function animatePulse() {
+      pulseRing.draw();
+      requestAnimationFrame(animatePulse);
+    }
+    animatePulse();
+  </script>
 </body>
 </html>
