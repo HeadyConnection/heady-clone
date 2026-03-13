@@ -1,0 +1,9 @@
+{
+  "name": "@heady/heady-memory",
+  "version": "4.0.0",
+  "description": "HeadyMemory — 3-tier vector memory (T0 working, T1 short-term, T2 long-term) with φ-decay dynamics",
+  "main": "index.js",
+  "exports": { ".": "./index.js" },
+  "dependencies": {},
+  "license": "UNLICENSED"
+}

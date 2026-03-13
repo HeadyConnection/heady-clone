@@ -1,0 +1,9 @@
+{
+  "name": "@heady/heady-autocontext",
+  "version": "4.0.0",
+  "description": "HeadyAutoContext — 5-pass enrichment pipeline (Intent→Memory→Grounding→Compression→Confidence)",
+  "main": "index.js",
+  "exports": { ".": "./index.js" },
+  "dependencies": {},
+  "license": "UNLICENSED"
+}
