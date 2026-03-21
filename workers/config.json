@@ -14,11 +14,3 @@
     }
   }
 }
-,
-  "mcpServers": {
-    "beneficial": {
-      "command": "node",
-      "args": ["${MCP_SERVER_PATH}/beneficial-server.js"],
-      "env": {}
-    }
-  }

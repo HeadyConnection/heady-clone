@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 mkdir -p services/auth-session-server/src
 cat << 'INNER_EOF' > services/auth-session-server/src/index.js
 const pino = require('pino');
