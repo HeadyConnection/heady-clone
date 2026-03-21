@@ -105,7 +105,9 @@ app.use(helmet({ contentSecurityPolicy: false, crossOriginEmbedderPolicy: false 
 app.use(compression());
 app.use(express.json({ limit: "5mb" }));
 app.use(cors({
-  origin: process.env.ALLOWED_ORIGINS ? process.env.ALLOWED_ORIGINS.split(",") : "*",
+  origin: process.env.ALLOWED_ORIGINS
+    ? process.env.ALLOWED_ORIGINS.split(",")
+    : ['http://localhost:3000', 'http://localhost:5173'],
   credentials: true,
 }));
 app.use("/api/", rateLimit({

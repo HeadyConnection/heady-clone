@@ -63,6 +63,8 @@ async function isClaudeAvailable() {
   // Quick probe: run a tiny --print command to verify CLI + auth in one shot
   return new Promise((resolve) => {
     const spawnOpts = { stdio: ["pipe", "pipe", "pipe"], windowsHide: true };
+    // SECURITY: shell: true is required on Windows for .cmd executables only.
+    // CLAUDE_BIN is a hardcoded constant, not user input, so this is safe.
     if (IS_WIN) spawnOpts.shell = true;
     const args = ["--print", "--output-format", "text", "--no-session-persistence", "--max-budget-usd", "0.01", "Reply with: HEADY_OK"];
     const proc = spawn(CLAUDE_BIN, args, spawnOpts);
@@ -165,7 +167,8 @@ function runClaude(prompt, options = {}) {
       env: { ...process.env },
       windowsHide: true,
     };
-    // On Windows, .cmd files require shell: true for spawn to work
+    // SECURITY: shell: true is required on Windows for .cmd executables only.
+    // CLAUDE_BIN is a hardcoded constant, not user input, so this is safe.
     if (IS_WIN) spawnOptions.shell = true;
 
     const proc = spawn(CLAUDE_BIN, args, spawnOptions);

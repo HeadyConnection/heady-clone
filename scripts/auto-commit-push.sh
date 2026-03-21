@@ -112,8 +112,7 @@ for remote in $REMOTES; do
       conflicted=$(git diff --name-only --diff-filter=U 2>/dev/null || true)
       if [ -n "$conflicted" ]; then
         for cf in $conflicted; do
-          sed -i '/^<<<<<<< HEAD$/d; /^=======$/d; /^>>>>>>> /d' "$cf"
-          git add "$cf"
+          sed -i '/^          git add "$cf"
         done
         git commit --no-edit --no-verify 2>/dev/null || true
         log "  ✓ Auto-resolved merge conflicts"

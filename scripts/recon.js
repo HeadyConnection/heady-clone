@@ -170,18 +170,10 @@ class HeadyRecon {
      */
     checkSystemState() {
         const state = {};
-<<<<<<< C:/Users/erich/Heady/scripts/recon.js
-<<<<<<< C:/Users/erich/Heady/scripts/recon.js
-<<<<<<< C:/Users/erich/Heady/scripts/recon.js
         for (const [indicator, files] of Object.entries(this.functionalIndicators)) {
             state[indicator] = files.some(file => 
                 fs.existsSync(path.join('C:\\Users\\erich\\Heady', file)) ||
                 fs.existsSync(path.join('C:\\Users\\erich\\CascadeProjects\\HeadyMonorepo', file))
-=======
-=======
->>>>>>> C:/Users/erich/.windsurf/worktrees/Heady/Heady-316a4fbf/scripts/recon.js
-=======
->>>>>>> C:/Users/erich/.windsurf/worktrees/Heady/Heady-316a4fbf/scripts/recon.js
 
         const repoRoot = this.resolveRepoRoot(process.cwd());
         const candidateRoots = [repoRoot];
@@ -189,13 +181,6 @@ class HeadyRecon {
         for (const [indicator, files] of Object.entries(this.functionalIndicators)) {
             state[indicator] = candidateRoots.some(basePath =>
                 files.some(file => fs.existsSync(path.join(basePath, file)))
-<<<<<<< C:/Users/erich/Heady/scripts/recon.js
-<<<<<<< C:/Users/erich/Heady/scripts/recon.js
->>>>>>> C:/Users/erich/.windsurf/worktrees/Heady/Heady-316a4fbf/scripts/recon.js
-=======
->>>>>>> C:/Users/erich/.windsurf/worktrees/Heady/Heady-316a4fbf/scripts/recon.js
-=======
->>>>>>> C:/Users/erich/.windsurf/worktrees/Heady/Heady-316a4fbf/scripts/recon.js
             );
         }
 
@@ -412,22 +397,7 @@ class HeadyRecon {
      */
     saveReport(analysis) {
         const report = this.generateReport(analysis);
-<<<<<<< C:/Users/erich/Heady/scripts/recon.js
-<<<<<<< C:/Users/erich/Heady/scripts/recon.js
-<<<<<<< C:/Users/erich/Heady/scripts/recon.js
         const reportPath = path.join('C:\\Users\\erich\\Heady\\logs\\recon-analysis.json');
-=======
-        const repoRoot = this.resolveRepoRoot(process.cwd());
-        const reportPath = path.join(repoRoot, 'logs', 'recon-analysis.json');
->>>>>>> C:/Users/erich/.windsurf/worktrees/Heady/Heady-316a4fbf/scripts/recon.js
-=======
-        const repoRoot = this.resolveRepoRoot(process.cwd());
-        const reportPath = path.join(repoRoot, 'logs', 'recon-analysis.json');
->>>>>>> C:/Users/erich/.windsurf/worktrees/Heady/Heady-316a4fbf/scripts/recon.js
-=======
-        const repoRoot = this.resolveRepoRoot(process.cwd());
-        const reportPath = path.join(repoRoot, 'logs', 'recon-analysis.json');
->>>>>>> C:/Users/erich/.windsurf/worktrees/Heady/Heady-316a4fbf/scripts/recon.js
         
         // Ensure directory exists
         const logDir = path.dirname(reportPath);
@@ -445,22 +415,7 @@ class HeadyRecon {
      * Load previous analysis
      */
     loadReport() {
-<<<<<<< C:/Users/erich/Heady/scripts/recon.js
-<<<<<<< C:/Users/erich/Heady/scripts/recon.js
-<<<<<<< C:/Users/erich/Heady/scripts/recon.js
         const reportPath = path.join('C:\\Users\\erich\\Heady\\logs\\recon-analysis.json');
-=======
-        const repoRoot = this.resolveRepoRoot(process.cwd());
-        const reportPath = path.join(repoRoot, 'logs', 'recon-analysis.json');
->>>>>>> C:/Users/erich/.windsurf/worktrees/Heady/Heady-316a4fbf/scripts/recon.js
-=======
-        const repoRoot = this.resolveRepoRoot(process.cwd());
-        const reportPath = path.join(repoRoot, 'logs', 'recon-analysis.json');
->>>>>>> C:/Users/erich/.windsurf/worktrees/Heady/Heady-316a4fbf/scripts/recon.js
-=======
-        const repoRoot = this.resolveRepoRoot(process.cwd());
-        const reportPath = path.join(repoRoot, 'logs', 'recon-analysis.json');
->>>>>>> C:/Users/erich/.windsurf/worktrees/Heady/Heady-316a4fbf/scripts/recon.js
         if (fs.existsSync(reportPath)) {
             const data = fs.readFileSync(reportPath, 'utf8');
             return JSON.parse(data);
