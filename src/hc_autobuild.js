@@ -29,25 +29,6 @@ const fs = require('fs');
 
 logger.info('\n🔨 Heady AutoBuild - Sacred Geometry Build System with Codemap Optimization\n');
 
-<<<<<<< C:/Users/erich/Heady/src/hc_autobuild.js
-<<<<<<< C:/Users/erich/Heady/src/hc_autobuild.js
-<<<<<<< C:/Users/erich/Heady/src/hc_autobuild.js
-<<<<<<< C:/Users/erich/Heady/src/hc_autobuild.js
-<<<<<<< C:/Users/erich/Heady/src/hc_autobuild.js
-<<<<<<< C:/Users/erich/Heady/src/hc_autobuild.js
-<<<<<<< C:/Users/erich/Heady/src/hc_autobuild.js
-<<<<<<< C:/Users/erich/Heady/src/hc_autobuild.js
-<<<<<<< C:/Users/erich/Heady/src/hc_autobuild.js
-<<<<<<< C:/Users/erich/Heady/src/hc_autobuild.js
-<<<<<<< C:/Users/erich/Heady/src/hc_autobuild.js
-<<<<<<< C:/Users/erich/Heady/src/hc_autobuild.js
-<<<<<<< C:/Users/erich/Heady/src/hc_autobuild.js
-<<<<<<< C:/Users/erich/Heady/src/hc_autobuild.js
-<<<<<<< C:/Users/erich/Heady/src/hc_autobuild.js
-<<<<<<< C:/Users/erich/Heady/src/hc_autobuild.js
-<<<<<<< C:/Users/erich/Heady/src/hc_autobuild.js
-=======
->>>>>>> C:/Users/erich/Heady/src/hc_autobuild.js.undo_before
 // Worktree base path (Windsurf worktree mode)
 const WORKTREE_BASE = 'C:\\Users\\erich\\.windsurf\\worktrees';
 =======
@@ -125,10 +106,6 @@ function discoverWorktrees() {
       .filter(d => d.isDirectory())
       .map(d => path.join(WORKTREE_BASE, d.name));
 
-<<<<<<< C:/Users/erich/Heady/src/hc_autobuild.js
-<<<<<<< C:/Users/erich/Heady/src/hc_autobuild.js
-<<<<<<< C:/Users/erich/Heady/src/hc_autobuild.js
->>>>>>> C:/Users/erich/.windsurf/worktrees/Heady/Heady-316a4fbf/src/hc_autobuild.js
 =======
 >>>>>>> C:/Users/erich/.windsurf/worktrees/Heady/Heady-316a4fbf/src/hc_autobuild.js
 =======
@@ -153,18 +130,8 @@ function discoverWorktrees() {
       });
     });
   }
-<<<<<<< C:/Users/erich/Heady/src/hc_autobuild.js
-<<<<<<< C:/Users/erich/Heady/src/hc_autobuild.js
-<<<<<<< C:/Users/erich/Heady/src/hc_autobuild.js
-<<<<<<< C:/Users/erich/Heady/src/hc_autobuild.js
-<<<<<<< C:/Users/erich/Heady/src/hc_autobuild.js
-<<<<<<< C:/Users/erich/Heady/src/hc_autobuild.js
-<<<<<<< C:/Users/erich/Heady/src/hc_autobuild.js
   
   return worktrees;
-=======
-=======
->>>>>>> C:/Users/erich/.windsurf/worktrees/Heady/Heady-316a4fbf/src/hc_autobuild.js
 =======
 >>>>>>> C:/Users/erich/.windsurf/worktrees/Heady/Heady-316a4fbf/src/hc_autobuild.js
 =======
@@ -223,14 +190,6 @@ function discoverWorktrees() {
       return false;
     }
   }))];
-<<<<<<< C:/Users/erich/Heady/src/hc_autobuild.js
-<<<<<<< C:/Users/erich/Heady/src/hc_autobuild.js
-<<<<<<< C:/Users/erich/Heady/src/hc_autobuild.js
-<<<<<<< C:/Users/erich/Heady/src/hc_autobuild.js
-<<<<<<< C:/Users/erich/Heady/src/hc_autobuild.js
-<<<<<<< C:/Users/erich/Heady/src/hc_autobuild.js
-<<<<<<< C:/Users/erich/Heady/src/hc_autobuild.js
->>>>>>> C:/Users/erich/.windsurf/worktrees/Heady/Heady-316a4fbf/src/hc_autobuild.js
 =======
 >>>>>>> C:/Users/erich/.windsurf/worktrees/Heady/Heady-316a4fbf/src/hc_autobuild.js
 =======
@@ -269,22 +228,8 @@ function findBuildableProjects(baseDir, depth = 2) {
       });
     } catch (err) {
       // Skip inaccessible directories
-<<<<<<< C:/Users/erich/Heady/src/hc_autobuild.js
-<<<<<<< C:/Users/erich/Heady/src/hc_autobuild.js
-<<<<<<< C:/Users/erich/Heady/src/hc_autobuild.js
-<<<<<<< C:/Users/erich/Heady/src/hc_autobuild.js
-<<<<<<< C:/Users/erich/Heady/src/hc_autobuild.js
-<<<<<<< C:/Users/erich/Heady/src/hc_autobuild.js
-<<<<<<< C:/Users/erich/Heady/src/hc_autobuild.js
-<<<<<<< C:/Users/erich/Heady/src/hc_autobuild.js
 =======
 >>>>>>> C:/Users/erich/.windsurf/worktrees/Heady/Heady-316a4fbf/src/hc_autobuild.js
-=======
->>>>>>> C:/Users/erich/.windsurf/worktrees/Heady/Heady-316a4fbf/src/hc_autobuild.js
-<<<<<<< C:/Users/erich/Heady/src/hc_autobuild.js
-=======
-=======
->>>>>>> C:/Users/erich/.windsurf/worktrees/Heady/Heady-4a742f6d/src/hc_autobuild.js
 =======
 >>>>>>> C:/Users/erich/.windsurf/worktrees/Heady/Heady-b7f06678/src/hc_autobuild.js
 =======
@@ -297,14 +242,6 @@ function findBuildableProjects(baseDir, depth = 2) {
 >>>>>>> C:/Users/erich/.windsurf/worktrees/Heady/Heady-4a742f6d/src/hc_autobuild.js
 // Optimized build order based on dependency analysis from codemap
 const repos = [
-<<<<<<< C:/Users/erich/Heady/src/hc_autobuild.js
-<<<<<<< C:/Users/erich/Heady/src/hc_autobuild.js
-<<<<<<< C:/Users/erich/Heady/src/hc_autobuild.js
-<<<<<<< C:/Users/erich/Heady/src/hc_autobuild.js
-<<<<<<< C:/Users/erich/Heady/src/hc_autobuild.js
-<<<<<<< C:/Users/erich/Heady/src/hc_autobuild.js
-<<<<<<< C:/Users/erich/Heady/src/hc_autobuild.js
-<<<<<<< C:/Users/erich/Heady/src/hc_autobuild.js
   'C:\\Users\\erich\\Heady',
   'C:\\Users\\erich\\CascadeProjects\\HeadyMonorepo', 
   'C:\\Users\\erich\\CascadeProjects\\HeadyEcosystem',
@@ -320,21 +257,6 @@ const buildMetrics = {
 };
 
 function analyzeDependencies(repo) {
-<<<<<<< C:/Users/erich/Heady/src/hc_autobuild.js
-<<<<<<< C:/Users/erich/Heady/src/hc_autobuild.js
-<<<<<<< C:/Users/erich/Heady/src/hc_autobuild.js
-<<<<<<< C:/Users/erich/Heady/src/hc_autobuild.js
-<<<<<<< C:/Users/erich/Heady/src/hc_autobuild.js
-<<<<<<< C:/Users/erich/Heady/src/hc_autobuild.js
-=======
-  process.cwd(),
-];
-
-=======
-  process.cwd(),
-];
-
->>>>>>> C:/Users/erich/.windsurf/worktrees/Heady/Heady-4a742f6d/src/hc_autobuild.js
 =======
   process.cwd(),
 ];
@@ -445,13 +367,6 @@ function runOptimizedBuild(repo, info) {
     } else if (info.scripts.start) {
       logger.info(`   🚀 Using start script as build alternative...`);
       buildMetrics.optimizations.push(`Used start script for ${info.name}`);
-<<<<<<< C:/Users/erich/Heady/src/hc_autobuild.js
-<<<<<<< C:/Users/erich/Heady/src/hc_autobuild.js
-<<<<<<< C:/Users/erich/Heady/src/hc_autobuild.js
-<<<<<<< C:/Users/erich/Heady/src/hc_autobuild.js
-<<<<<<< C:/Users/erich/Heady/src/hc_autobuild.js
-<<<<<<< C:/Users/erich/Heady/src/hc_autobuild.js
->>>>>>> C:/Users/erich/.windsurf/worktrees/Heady/Heady-b7f06678/src/hc_autobuild.js
 =======
 >>>>>>> C:/Users/erich/.windsurf/worktrees/Heady/Heady-316a4fbf/src/hc_autobuild.js
 =======
@@ -484,11 +399,6 @@ function runOptimizedBuild(repo, info) {
     buildMetrics.errors.push(errorMsg);
     return false;
   }
-<<<<<<< C:/Users/erich/Heady/src/hc_autobuild.js
-<<<<<<< C:/Users/erich/Heady/src/hc_autobuild.js
-<<<<<<< C:/Users/erich/Heady/src/hc_autobuild.js
-<<<<<<< C:/Users/erich/Heady/src/hc_autobuild.js
-<<<<<<< C:/Users/erich/Heady/src/hc_autobuild.js
   
   scan(baseDir, 0);
   return projects;
@@ -519,17 +429,7 @@ function buildProject(projectPath) {
     if (pkg.scripts && pkg.scripts.build) {
       logger.info(`  🔧 Running build script...`);
       execSync('pnpm run build', { cwd: projectPath, stdio: 'inherit' });
-<<<<<<< C:/Users/erich/Heady/src/hc_autobuild.js
-<<<<<<< C:/Users/erich/Heady/src/hc_autobuild.js
-<<<<<<< C:/Users/erich/Heady/src/hc_autobuild.js
-<<<<<<< C:/Users/erich/Heady/src/hc_autobuild.js
-<<<<<<< C:/Users/erich/Heady/src/hc_autobuild.js
-<<<<<<< C:/Users/erich/Heady/src/hc_autobuild.js
     }
-<<<<<<< C:/Users/erich/Heady/src/hc_autobuild.js
-=======
-=======
->>>>>>> C:/Users/erich/.windsurf/worktrees/Heady/Heady-4a742f6d/src/hc_autobuild.js
 =======
 >>>>>>> C:/Users/erich/.windsurf/worktrees/Heady/Heady-316a4fbf/src/hc_autobuild.js
 =======
@@ -541,15 +441,11 @@ function buildProject(projectPath) {
     logger.info(`✅ ${repo} - Complete\n`);
     return true;
   } catch (error) {
-<<<<<<< C:/Users/erich/Heady/src/hc_autobuild.js
-<<<<<<< C:/Users/erich/Heady/src/hc_autobuild.js
-<<<<<<< C:/Users/erich/Heady/src/hc_autobuild.js
     const errorMsg = `${repo} - Build failed: ${error.message}`;
     logger.info(`❌ ${errorMsg}\n`);
     buildMetrics.errors.push(errorMsg);
     return false;
   }
-<<<<<<< C:/Users/erich/Heady/src/hc_autobuild.js
   
   scan(baseDir, 0);
   return projects;
@@ -581,7 +477,6 @@ function buildProject(projectPath) {
       logger.info(`  🔧 Running build script...`);
       execSync('pnpm run build', { cwd: projectPath, stdio: 'inherit' });
     }
->>>>>>> C:/Users/erich/.windsurf/worktrees/Heady/Heady-316a4fbf/src/hc_autobuild.js
 =======
 >>>>>>> C:/Users/erich/.windsurf/worktrees/Heady/Heady-316a4fbf/src/hc_autobuild.js
 =======
@@ -620,17 +515,7 @@ worktrees.forEach(wt => {
   allProjects.push(...projects);
 });
 
-<<<<<<< C:/Users/erich/Heady/src/hc_autobuild.js
-<<<<<<< C:/Users/erich/Heady/src/hc_autobuild.js
-<<<<<<< C:/Users/erich/Heady/src/hc_autobuild.js
-<<<<<<< C:/Users/erich/Heady/src/hc_autobuild.js
-<<<<<<< C:/Users/erich/Heady/src/hc_autobuild.js
-<<<<<<< C:/Users/erich/Heady/src/hc_autobuild.js
-<<<<<<< C:/Users/erich/Heady/src/hc_autobuild.js
-<<<<<<< C:/Users/erich/Heady/src/hc_autobuild.js
 // Deduplicate
-=======
->>>>>>> C:/Users/erich/.windsurf/worktrees/Heady/Heady-316a4fbf/src/hc_autobuild.js
 =======
 >>>>>>> C:/Users/erich/.windsurf/worktrees/Heady/Heady-316a4fbf/src/hc_autobuild.js
 =======
@@ -651,23 +536,11 @@ logger.info(`📋 Found ${uniqueProjects.length} buildable projects\n`);
 const results = { success: 0, failed: 0 };
 uniqueProjects.forEach(project => {
   const result = buildProject(project);
-<<<<<<< C:/Users/erich/Heady/src/hc_autobuild.js
-<<<<<<< C:/Users/erich/Heady/src/hc_autobuild.js
-<<<<<<< C:/Users/erich/Heady/src/hc_autobuild.js
-<<<<<<< C:/Users/erich/Heady/src/hc_autobuild.js
-<<<<<<< C:/Users/erich/Heady/src/hc_autobuild.js
-<<<<<<< C:/Users/erich/Heady/src/hc_autobuild.js
-<<<<<<< C:/Users/erich/Heady/src/hc_autobuild.js
-<<<<<<< C:/Users/erich/Heady/src/hc_autobuild.js
   if (result.success) {
     results.success++;
   } else {
     results.failed++;
   }
-=======
-  if (result.success) results.success++;
-  else results.failed++;
->>>>>>> C:/Users/erich/.windsurf/worktrees/Heady/Heady-316a4fbf/src/hc_autobuild.js
 =======
   if (result.success) results.success++;
   else results.failed++;
@@ -702,10 +575,6 @@ logger.info('═'.repeat(60));
 logger.info('✅ Heady AutoBuild Complete!');
 logger.info(`   Success: ${results.success} | Failed: ${results.failed}`);
 logger.info('═'.repeat(60) + '\n');
-<<<<<<< C:/Users/erich/Heady/src/hc_autobuild.js
-=======
-=======
->>>>>>> C:/Users/erich/.windsurf/worktrees/Heady/Heady-4a742f6d/src/hc_autobuild.js
 =======
 >>>>>>> C:/Users/erich/.windsurf/worktrees/Heady/Heady-b7f06678/src/hc_autobuild.js
 =======
@@ -776,13 +645,6 @@ buildOrder.forEach(({ path: repo, info }) => {
 });
 
 generateBuildReport();
-<<<<<<< C:/Users/erich/Heady/src/hc_autobuild.js
-<<<<<<< C:/Users/erich/Heady/src/hc_autobuild.js
-<<<<<<< C:/Users/erich/Heady/src/hc_autobuild.js
-<<<<<<< C:/Users/erich/Heady/src/hc_autobuild.js
-<<<<<<< C:/Users/erich/Heady/src/hc_autobuild.js
-<<<<<<< C:/Users/erich/Heady/src/hc_autobuild.js
->>>>>>> C:/Users/erich/.windsurf/worktrees/Heady/Heady-b7f06678/src/hc_autobuild.js
 =======
 >>>>>>> C:/Users/erich/.windsurf/worktrees/Heady/Heady-4a742f6d/src/hc_autobuild.js
 =======

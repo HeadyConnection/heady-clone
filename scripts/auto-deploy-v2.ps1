@@ -387,16 +387,12 @@ try {
     throw
 }
 
-<<<<<<< HEAD
 }
 
 } catch {
     Write-Error "Auto-deploy failed: $_"
     exit 1
 }
-=======
-Write-Host "Validating script syntax..."
->>>>>>> a3d7d06c432bf92df85e53f8d0cf1e6c8622ccea
 $errors = Invoke-ScriptAnalyzer -Path $PSCommandPath -Severity Error
 if ($errors) {
     Write-Error "Script contains syntax errors:" 
@@ -557,7 +553,6 @@ $filesToScan | ForEach-Object { -Parallel {
         $fileImprovements += 'ErrorHandling'
     }
     
-<<<<<<< HEAD
 =======
     # Check for missing circuit breakers in critical operations
     if ($file.Name -match 'deploy|critical|rollback|sync' -and $content -notmatch 'Get-CircuitBreaker') {
@@ -701,7 +696,6 @@ $filesToScan | ForEach-Object { -Parallel {
         }
     }
     
-<<<<<<< HEAD
     # Write improvements if any were made
     if ($modified) {
         $backupPath = "$($file.FullName).backup"
@@ -760,77 +754,3 @@ Register-PatternEvent -PatternId 'beneficial_scan_completed' -Context @{
     CriticalIssues = ($scanResults | Where-Object { $_.Severity -eq 'Critical' }).Count
 }
     
-=======
->>>>>>> a3d7d06c432bf92df85e53f8d0cf1e6c8622ccea
-    # Apply modifications if any were made
-    if ($modified) {
-        try {
-            # Create backup before modifying
-            $backupPath = "$($file.FullName).bak"
-            Copy-Item -Path $file.FullName -Destination $backupPath -Force
-            
-            Set-Content -Path $file.FullName -Value $newContent -Encoding UTF8 -ErrorAction Stop
-            Write-Host "  ✅ Enhanced $($file.Name) [+$($fileImprovements -join ', ')]" -ForegroundColor Green
-            $appliedImprovements++
-            
-            # Remove backup if successful
-            Remove-Item -Path $backupPath -Force -ErrorAction SilentlyContinue
-        } catch {
-            Write-Warning "Failed to modify $($file.Name): $_"
-            # Restore from backup if modification failed
-            if (Test-Path $backupPath) {
-                Copy-Item -Path $backupPath -Destination $file.FullName -Force
-                Remove-Item -Path $backupPath -Force
-            }
-        }
-    }
-}
-
-Write-Host "`n✅ Scan complete: Applied $appliedImprovements improvements, found $($scanResults.Count) issues" -ForegroundColor Green
-
-if ($scanResults.Count -gt 0) {
-    Write-Host "`n📊 Issues found:" -ForegroundColor Yellow
-    $scanResults | Group-Object Severity | Sort-Object { 
-        switch ($_.Name) {
-            'Critical' { 0 }
-            'High' { 1 }
-            'Medium' { 2 }
-            default { 3 }
-        }
-    } | ForEach-Object -Parallel {
-        $color = switch ($_.Name) {
-            'Critical' { 'Magenta' }
-            'High' { 'Red' }
-            'Medium' { 'Yellow' }
-            default { 'Gray' }
-        }
-        Write-Host "  [$($_.Name)]: $($_.Group.Count) files" -ForegroundColor $color
-        $_.Group | ForEach-Object -Parallel { 
-            Write-Host "    - $($_.File): $($_.Issue)" -ForegroundColor Cyan
-            Write-Host "      💡 $($_.Recommendation)" -ForegroundColor DarkGray
-        }
-    }
-}
-
-Register-PatternEvent -PatternId 'beneficial_scan_completed' -Context @{
-    ImprovementsApplied = $appliedImprovements
-    IssuesFound = $scanResults.Count
-    FilesScanned = $totalFiles
-    Timestamp = Get-Date
-    ProjectRoot = $projectRoot
-    CriticalIssues = ($scanResults | Where-Object { $_.Severity -eq 'Critical' }).Count
-}
-
-<<<<<<< HEAD
-=======
-# Check for potentially dangerous expressions
-if ($content -match 'Invoke-Expression|iex|&\s*\$') {
-    $scanResults += @{
-        File = $file.Name
-        Issue = "Potentially dangerous expression detected"
-        Severity = "High"
-        Line = $_.LineNumber
-        Code = $_.Line
-    }
-}
->>>>>>> a3d7d06c432bf92df85e53f8d0cf1e6c8622ccea
