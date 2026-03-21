@@ -629,7 +629,7 @@ const generateHtml = (site) => `<!DOCTYPE html>
                 </div>
                 <button id="btn-logout" class="btn-logout" title="Sign Out">✕</button>
             </div>
-            <a href="https://auth.headysystems.com/login?redirect=https://${site.domain}" class="btn-nav" id="btn-login-nav">Sign In →</a>
+            <a href="https://auth.heady.io/login?redirect=https://${site.domain}" class="btn-nav" id="btn-login-nav">Sign In →</a>
         </div>
     </nav>
 
@@ -859,7 +859,7 @@ const topology = {
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>© 2026 Heady Systems Inc. · <a href="https://headysystems.com">headysystems.com</a> · ∞ Sacred Geometry · Organic Systems · Breathing Interfaces</p>
+                <p>© 2026 Heady Systems Inc. · <a href="https://heady.io">heady.io</a> · ∞ Sacred Geometry · Organic Systems · Breathing Interfaces</p>
             </div>
         </div>
     </footer>
@@ -942,7 +942,7 @@ const topology = {
                     updateUI(user);
                 });
 
-                // Handle cross-window token relay from auth.headysystems.com
+                // Handle cross-window token relay from auth.heady.io
                 window.addEventListener('message', (event) => {
                     if (event.data && event.data.type === 'heady:auth:token') {
                         window.headyAuth.login(event.data.token, event.data.user);
@@ -960,7 +960,7 @@ const topology = {
             }
         });
     </script>
-    <script src="https://headysystems.com/shared/heady-swarm-client.js" onerror="console.warn('Swarm client failed to load')"></script>
+    <script src="https://heady.io/shared/heady-swarm-client.js" onerror="console.warn('Swarm client failed to load')"></script>
 </body>
 </html>`;
 
