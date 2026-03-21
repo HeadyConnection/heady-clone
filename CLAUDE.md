@@ -273,6 +273,14 @@ curl -X POST api.headysystems.com:3300/api/system/production # Activate producti
 | `configs/notebook-ci.yaml` | Notebook CI validation configuration |
 | `notebooks/` | Colab notebooks (quick-start, tutorials, examples) |
 
+## AutoContext Integration
+For full ecosystem context, reference [HeadyAutoContext](https://github.com/HeadySystems/HeadyAutoContext):
+- **Quick tasks:** `context/Small/heady-quick-context.md`
+- **Feature work:** `context/Medium/` (full directory)
+- **Deep architecture:** `context/Large/` (full directory)
+- **Runtime injection:** `getAutoContext().enrich()` — zero-code context enrichment
+- **MCP access:** Use the `context` tool in heady-mcp-server
+
 ## DETERMINISM RULE
 
 Given the same input, `hcfullpipeline.yaml`, `resource-policies.yaml`, and
