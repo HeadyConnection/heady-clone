@@ -14,7 +14,6 @@
 <# ╚══════════════════════════════════════════════════════════════════╝
 <# HEADY_BRAND:END
 #>
-<<<<<<< HEAD
 # Ventoy Installation Script — Supports Armor 700 and SanDisk drives
 # Usage:
 #   .\scripts\create_bootable_drive.ps1                     # Auto-detect Armor 700
@@ -214,7 +213,6 @@ foreach ($osName in $isos.Keys) {
         }
     } else {
         Write-Host "  Already have: $osName" -ForegroundColor DarkGray
-=======
 # Ventoy Installation Script
 param(
     [string]$driveLetter = "D:"
@@ -263,14 +261,12 @@ foreach ($os in $isos.Keys) {
     if (-not (Test-Path $isoFile)) {
         Write-Host "Downloading $os ISO..."
         Invoke-WebRequest -TimeoutSec 10 $isos[$os] -OutFile $isoFile
->>>>>>> a3d7d06c432bf92df85e53f8d0cf1e6c8622ccea
     }
 }
 
 # Copy HeadyOS ISO if exists
 $headyIso = "$env:USERPROFILE\Heady\distribution\HeadyOS.iso"
 if (Test-Path $headyIso) {
-<<<<<<< HEAD
     $dest = Join-Path $localIsoPath "HeadyOS.iso"
     if (-not (Test-Path $dest)) {
         Copy-Item -Path $headyIso -Destination $dest
@@ -327,7 +323,6 @@ Write-Host "To boot: Restart PC -> Enter BIOS (F2/Del) -> Set USB boot priority"
 Write-Host "  UEFI: Select 'UEFI: $($targetDisk.FriendlyName)'" -ForegroundColor Yellow
 Write-Host "  Legacy: Select '$($targetDisk.FriendlyName)'" -ForegroundColor Yellow
 Write-Host ""
-=======
     Write-Host "Copying HeadyOS ISO..."
     Copy-Item -Path $headyIso -Destination "${localIsoPath}\\HeadyOS.iso"
 }
@@ -337,4 +332,3 @@ Write-Host "Copying ISO files to USB drive..."
 Copy-Item -Path "${localIsoPath}\\*" -Destination $isoPath -Recurse
 
 Write-Host 'Bootable drive setup complete! Added Ubuntu, ParrotOS, and HeadyOS.' -ForegroundColor Green
->>>>>>> a3d7d06c432bf92df85e53f8d0cf1e6c8622ccea

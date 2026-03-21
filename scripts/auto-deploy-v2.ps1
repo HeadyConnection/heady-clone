@@ -387,16 +387,13 @@ try {
     throw
 }
 
-<<<<<<< HEAD
 }
 
 } catch {
     Write-Error "Auto-deploy failed: $_"
     exit 1
 }
-=======
 Write-Host "Validating script syntax..."
->>>>>>> a3d7d06c432bf92df85e53f8d0cf1e6c8622ccea
 $errors = Invoke-ScriptAnalyzer -Path $PSCommandPath -Severity Error
 if ($errors) {
     Write-Error "Script contains syntax errors:" 
@@ -557,8 +554,6 @@ $filesToScan | ForEach-Object { -Parallel {
         $fileImprovements += 'ErrorHandling'
     }
     
-<<<<<<< HEAD
-=======
     # Check for missing circuit breakers in critical operations
     if ($file.Name -match 'deploy|critical|rollback|sync' -and $content -notmatch 'Get-CircuitBreaker') {
         $circuitCode = $beneficialPatterns['CircuitBreaker'] -f $file.BaseName, $file.BaseName
@@ -689,7 +684,6 @@ $filesToScan | ForEach-Object { -Parallel {
         }
     }
     
->>>>>>> a3d7d06c432bf92df85e53f8d0cf1e6c8622ccea
     # Check for potentially dangerous expressions
     if ($content -match 'Invoke-Expression|iex|&\s*\$') {
         $scanResults += @{
@@ -701,7 +695,6 @@ $filesToScan | ForEach-Object { -Parallel {
         }
     }
     
-<<<<<<< HEAD
     # Write improvements if any were made
     if ($modified) {
         $backupPath = "$($file.FullName).backup"
@@ -760,8 +753,6 @@ Register-PatternEvent -PatternId 'beneficial_scan_completed' -Context @{
     CriticalIssues = ($scanResults | Where-Object { $_.Severity -eq 'Critical' }).Count
 }
     
-=======
->>>>>>> a3d7d06c432bf92df85e53f8d0cf1e6c8622ccea
     # Apply modifications if any were made
     if ($modified) {
         try {
@@ -821,8 +812,6 @@ Register-PatternEvent -PatternId 'beneficial_scan_completed' -Context @{
     CriticalIssues = ($scanResults | Where-Object { $_.Severity -eq 'Critical' }).Count
 }
 
-<<<<<<< HEAD
-=======
 # Check for potentially dangerous expressions
 if ($content -match 'Invoke-Expression|iex|&\s*\$') {
     $scanResults += @{
@@ -833,4 +822,3 @@ if ($content -match 'Invoke-Expression|iex|&\s*\$') {
         Code = $_.Line
     }
 }
->>>>>>> a3d7d06c432bf92df85e53f8d0cf1e6c8622ccea

@@ -7,7 +7,6 @@
 # ║   ◈ © 2026 HeadySystems Inc. — Eric Haywood, Founder           ║
 # ╚══════════════════════════════════════════════════════════════════╝
 
-<<<<<<< HEAD
 # HEADY_BRAND:BEGIN
 # ╔══════════════════════════════════════════════════════════════════╗
 # ║  ██╗  ██╗███████╗ █████╗ ██████╗ ██╗   ██╗                     ║
@@ -23,14 +22,11 @@
 # ║  LAYER: root                                                  ║
 # ╚══════════════════════════════════════════════════════════════════╝
 # HEADY_BRAND:END
-=======
 version: '3.8'
->>>>>>> a3d7d06c432bf92df85e53f8d0cf1e6c8622ccea
 
 services:
   heady-manager:
     build: .
-<<<<<<< HEAD
     environment:
       - NODE_ENV=production
       - DATABASE_URL=postgresql://user:pass@cloud-postgres.heady.io:5432/heady_sys
@@ -43,7 +39,6 @@ services:
       - HEADY_TARGET=CloudOnly
     healthcheck:
       # NOTE: api.headysystems.com is required here — healthcheck runs inside the container
-=======
     container_name: heady-manager
     ports:
       - "3300:3300"
@@ -57,12 +52,10 @@ services:
     networks:
       - heady-net
     healthcheck:
->>>>>>> a3d7d06c432bf92df85e53f8d0cf1e6c8622ccea
       test: ["CMD", "wget", "-qO-", "http://api.headysystems.com:3300/api/health"]
       interval: 30s
       timeout: 10s
       retries: 3
-<<<<<<< HEAD
       start_period: 40s
     hostname: heady-manager
     networks:
@@ -144,7 +137,6 @@ volumes:
   heady-downloads:
     driver: local
 
-=======
     restart: unless-stopped
 
   heady-redis:
@@ -181,4 +173,3 @@ volumes:
 networks:
   heady-net:
     driver: bridge
->>>>>>> a3d7d06c432bf92df85e53f8d0cf1e6c8622ccea
