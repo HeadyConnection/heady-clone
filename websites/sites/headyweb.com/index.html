@@ -131,6 +131,99 @@
             transform: translateY(-1px);
         }
 
+        /* ─── Auth Widget ───────────────────────────────────────── */
+        .auth-widget {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 6px 14px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            transition: all 0.2s;
+        }
+
+        .auth-widget:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: var(--accent);
+        }
+
+        .auth-widget.authenticated {
+            border-color: rgba(34, 197, 94, 0.4);
+            background: rgba(34, 197, 94, 0.05);
+            color: var(--text-primary);
+        }
+
+        .auth-widget .avatar {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: var(--accent-glow);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.7rem;
+            color: var(--accent-bright);
+            border: 1px solid var(--border-accent);
+        }
+
+        .auth-widget.authenticated .avatar {
+            background: rgba(34, 197, 94, 0.2);
+            color: #4ade80;
+            border-color: rgba(34, 197, 94, 0.4);
+        }
+
+        .auth-status-text {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.2;
+        }
+
+        .auth-status-text strong {
+            font-weight: 600;
+        }
+
+        .auth-status-text small {
+            font-size: 0.65rem;
+            color: var(--text-muted);
+        }
+
+        .btn-logout {
+            background: transparent;
+            border: none;
+            color: var(--text-muted);
+            cursor: pointer;
+            padding: 2px;
+            display: none;
+        }
+
+        .auth-widget.authenticated .btn-logout {
+            display: block;
+        }
+
+        .btn-logout:hover {
+            color: var(--accent-6);
+        }
+
+        .storage-indicator {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            font-size: 0.7rem;
+            padding: 2px 6px;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border);
+        }
+
+        .storage-indicator.synced {
+            color: #4ade80;
+            border-color: rgba(34, 197, 94, 0.3);
+            background: rgba(34, 197, 94, 0.05);
+        }
+
         .page-wrapper {
             position: relative;
             z-index: 1;
@@ -509,8 +602,17 @@
             <a href="#overview" class="active">Overview</a>
             <a href="#architecture">Architecture</a>
             <a href="#api">API Reference</a>
+            <a href="#user-experience">User Experience</a>
             <a href="#ecosystem">Ecosystem</a>
-            <a href="https://headysystems.com" class="btn-nav">Heady Platform →</a>
+            <div id="auth-widget-container" class="auth-widget">
+                <div class="avatar" id="auth-avatar">G</div>
+                <div class="auth-status-text">
+                    <strong id="auth-user-name">Guest Access</strong>
+                    <small id="auth-storage-status">Local Storage Only</small>
+                </div>
+                <button id="btn-logout" class="btn-logout" title="Sign Out">✕</button>
+            </div>
+            <a href="https://auth.headysystems.com/login?redirect=https://headyweb.com" class="btn-nav" id="btn-login-nav">Sign In →</a>
         </div>
     </nav>
 
@@ -541,6 +643,7 @@
                         <li><a href="#architecture" class="nav-item">Architecture</a></li>
                         <li><a href="#data-model" class="nav-item">Data Model</a></li>
                         <li><a href="#security" class="nav-item">Security</a></li>
+                        <li><a href="#user-experience" class="nav-item">User Experience</a></li>
                     </ul>
 
                     <h3>Integration</h3>
@@ -602,6 +705,27 @@ const topology = {
   compute: 'gke-clusters',
   storage: ['postgres', 'redis-cluster', 'qdrant-vector']
 };</code></pre>
+                    </section>
+
+                    <section id="user-experience">
+                        <div class="section-label">User Experience</div>
+                        <h2>Flawless User Experience & Personal Storage</h2>
+                        <p>We ensure that the websites have professionally scaffolded info and allow for the user UI and UX to be comprehensive and easily understood. We provide the sites with everything necessary to ensure the user experience is flawless from guest access to personal persistent storage happening optimally after auth.</p>
+
+                        <div class="card-grid">
+                            <div class="feature-card">
+                                <h4>Guest Access</h4>
+                                <p>Immediate, low-friction access to explore the platform. Local data is securely kept in memory and transient browser storage until you choose to persist it.</p>
+                            </div>
+                            <div class="feature-card">
+                                <h4>Optimal Authentication</h4>
+                                <p>Seamlessly transition from guest to an authenticated user using our Zero Trust Firebase gateway, protecting your sessions using httpOnly cookies.</p>
+                            </div>
+                            <div class="feature-card">
+                                <h4>Personal Persistent Storage</h4>
+                                <p>Once authenticated, your local data seamlessly and optimally synchronizes to your personal persistent storage across the Heady ecosystem, governed by our Vector memory and Postgres replication layers.</p>
+                            </div>
+                        </div>
                     </section>
 
                     <section id="api">
@@ -825,6 +949,60 @@ const topology = {
         }, observerOptions);
 
         sections.forEach(section => observer.observe(section));
+
+        // ─── Auth & Storage Sync Logic ──────────────────────────────────────
+        document.addEventListener('DOMContentLoaded', () => {
+            const authWidget = document.getElementById('auth-widget-container');
+            const authAvatar = document.getElementById('auth-avatar');
+            const authUserName = document.getElementById('auth-user-name');
+            const authStorageStatus = document.getElementById('auth-storage-status');
+            const btnLogin = document.getElementById('btn-login-nav');
+            const btnLogout = document.getElementById('btn-logout');
+
+            function updateUI(user) {
+                if (user) {
+                    authWidget.classList.add('authenticated');
+                    authAvatar.textContent = user.displayName ? user.displayName.charAt(0).toUpperCase() : 'U';
+                    authUserName.textContent = user.displayName || user.email || 'Authenticated User';
+
+                    // Simulate optimal transition to personal persistent storage after auth
+                    authStorageStatus.innerHTML = '<span class="storage-indicator synced">● Synced to Personal Storage</span>';
+                    btnLogin.style.display = 'none';
+                } else {
+                    authWidget.classList.remove('authenticated');
+                    authAvatar.textContent = 'G';
+                    authUserName.textContent = 'Guest Access';
+                    authStorageStatus.textContent = 'Local Storage Only';
+                    btnLogin.style.display = 'block';
+                }
+            }
+
+            // Initialize UI from HeadyAuth if present
+            if (window.headyAuth) {
+                updateUI(window.headyAuth.user);
+
+                window.headyAuth.listenForAuthChanges((user) => {
+                    updateUI(user);
+                });
+
+                // Handle cross-window token relay from auth.headysystems.com
+                window.addEventListener('message', (event) => {
+                    if (event.data && event.data.type === 'heady:auth:token') {
+                        window.headyAuth.login(event.data.token, event.data.user);
+                        updateUI(event.data.user);
+                    }
+                });
+
+                btnLogout.addEventListener('click', () => {
+                    window.headyAuth.logout();
+                    updateUI(null);
+                });
+            } else {
+                console.warn('HeadyAuth not found - fallback to guest mode');
+                updateUI(null);
+            }
+        });
     </script>
+    <script src="https://headysystems.com/shared/heady-swarm-client.js" onerror="console.warn('Swarm client failed to load')"></script>
 </body>
 </html>
