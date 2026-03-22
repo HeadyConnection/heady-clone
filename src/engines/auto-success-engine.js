@@ -30,7 +30,7 @@ const http         = require('http');
 const https        = require('https');
 const { execFile, execFileSync } = require('child_process');
 
-const logger = require('../../shared/logger.js').createLogger({ service: 'auto-success-engine' });
+const logger = require('../../shared/logger.js').createChildLogger('auto-success-engine');
 
 // ─── Phi Constants ────────────────────────────────────────────────────────────
 /** Golden ratio φ = (1+√5)/2 */
