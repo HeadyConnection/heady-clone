@@ -115,9 +115,30 @@ app.use("/api/", rateLimit({
   legacyHeaders: false,
 }));
 
+// Security: remove X-Powered-By
+app.disable('x-powered-by');
+
+// ─── Unbreakable Laws Governance Middleware ──────────────────────────
+try {
+  const { unbreakableLawsMiddleware } = require('./src/middleware/unbreakable-laws');
+  app.use(unbreakableLawsMiddleware);
+  logger.info('Unbreakable Laws middleware: LOADED');
+} catch (err) {
+  logger.warn('Unbreakable Laws middleware not loaded: ' + err.message);
+}
+
 // ─── Imagination Routes ────────────────────────────────────────────
 if (imaginationRoutes) {
   app.use("/api/imagination", imaginationRoutes);
+}
+
+// ─── HeadyBuddy Omnichannel Service ─────────────────────────────────
+try {
+  const headyBuddy = require('./services/headybuddy');
+  headyBuddy.mount(app);
+  logger.info('HeadyBuddy omnichannel: LOADED (/webhook/slack, /webhook/obsidian, /api/buddy/status)');
+} catch (err) {
+  logger.warn('HeadyBuddy service not loaded: ' + err.message);
 }
 
 // ─── Static Assets ─────────────────────────────────────────────────

@@ -18,7 +18,21 @@
 # HCFullPipeline - Master Pipeline Definition
 # All stages, ordering, checkpoint rules, and stop conditions.
 
-version: "3.1.0"
+# ─── CHANGELOG ───────────────────────────────────────────────────────────────
+_changelog:
+  - version: "9.0.0"
+    date: "2026-04-01"
+    author: "HCFullPipeline Omnichannel Sync Integration"
+    breaking: false
+    changes:
+      - "ADDED: omnichannel_sync lane — bidirectional Slack/Obsidian/IDE sync with 5-min debounce"
+      - "ADDED: slack_workspace to receipt.monitorConfig.metricsTargets"
+      - "ADDED: sync_obsidian_vault task to system_operations cross-device-sync"
+      - "ADDED: slackConfig block with workspace, channels, and alert thresholds"
+      - "ADDED: syncConfig with 300s debounce, channel list, and conflict resolution"
+      - "FIXED: GitHub rate limit prevention via 5-minute telemetry debounce circuit"
+
+version: "9.0.0"
 pipeline:
   name: HCFullPipeline
   description: >
@@ -353,6 +367,7 @@ pipeline:
           - ide_status_bar
           - heady_buddy_notification
           - api_metrics_endpoint
+          - slack_workspace
         seamlessnessChecks:
           - shared_identity_across_channels
           - shared_project_context
@@ -532,6 +547,71 @@ pipeline:
         preserveExisting: true    # Never overwrite existing files
         autoDeleteProcessedZips: false
         scanScript: scripts/scan-in-folder.sh
+    system_operations:
+      description: Autonomous system maintenance, cleanup, and optimal state operations
+      triggers:
+        - schedule: "0 */4 * * *"               # Every 4 hours
+        - api_call: POST /api/pipeline/sysops
+      tasks:
+        - check_all_connection_health
+        - cleanup_orphaned_resources
+        - execute_routine_maintenance
+        - optimize_storage_utilization
+        - enforce_cost_boundaries
+        - run_security_audit
+        - scan_for_threats
+        - perform_system_backup
+        - verify_data_integrity
+        - cross_device_sync:
+            run: scripts/sync-state.ps1
+            args: -env production
+        - sync_obsidian_vault:
+            run: scripts/auto-sync-motor.js
+            args: --target obsidian
+            trigger: "file_change: C:/Obsidian/Vault/**"
+            description: "Aggressively watch Obsidian Vault for memory mapping sync"
+        - verify_sync:
+            run: scripts/verify-sync.ps1
+        - sync_priority_changes:
+            run: scripts/sync-priority.ps1
+        - deploy_priority:
+            run: scripts/deploy-priority.ps1
+    omnichannel_sync:
+      description: >
+        Bidirectional omnichannel synchronization lane. Watches Slack workspace,
+        Obsidian Vault, and IDE channels for state changes and streams them into
+        the HCFullPipeline execution loop. Ensures memory mapping runs synchronously
+        without manual intervention.
+      triggers:
+        - schedule: "*/5 * * * *"                  # Every 5 minutes
+        - file_change: "C:/Obsidian/Vault/**"
+        - api_call: POST /api/pipeline/omnichannel
+      tasks:
+        - sync_slack_workspace:
+            run: scripts/auto-sync-motor.js
+            args: --target slack
+            description: "Bidirectional Slack messenger sync via Cloudflare workers/heady-sync"
+        - sync_obsidian_vault:
+            run: scripts/auto-sync-motor.js
+            args: --target obsidian
+            description: "Memory directory traversal sync from Obsidian Vault"
+        - sync_ide_state:
+            run: scripts/auto-sync-motor.js
+            args: --target ide
+            description: "IDE workspace state synchronization"
+        - verify_omnichannel_consistency:
+            run: scripts/auto-sync-motor.js
+            args: --verify
+            description: "Cross-channel state consistency verification"
+      syncConfig:
+        debounceMs: 300000                         # 5-minute telemetry debounce
+        cacheFile: .heady-memory/last-remote-sync.txt
+        channels:
+          - slack
+          - obsidian
+          - ide
+          - github
+        conflictResolution: latest-wins
 
   # ─── CHECKPOINT PROTOCOL ────────────────────────────────────────────────
   checkpointProtocol:
